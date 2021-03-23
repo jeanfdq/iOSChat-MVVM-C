@@ -13,7 +13,7 @@ extension UIViewController {
         return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
     }
     
-    func setupNavigationBar(isHidden: Bool = false, isTranslucent: Bool = false, title: String = "", titleColor: UIColor = .red, backButtonIsHidden: Bool = false, backButtonTitle: String = "", backgroungColor: UIColor? = UIColor.white, withShadow: Bool = false, animated: Bool = true) {
+    func setupNavigationBar(isHidden: Bool = false, isTranslucent: Bool = false, title: String = "", titleColor: UIColor = .red, backButtonIsHidden: Bool = false, backButtonTitle: String = "", backgroungColor: UIColor? = UIColor.white, withShadow: Bool = false, animated: Bool = false) {
         
         self.navigationItem.title = title
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:titleColor]
@@ -35,6 +35,9 @@ extension UIViewController {
             self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
             self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
             self.navigationController?.navigationBar.layer.shadowRadius = 2
+        } else {
+            self.navigationController?.navigationBar.layer.shadowColor = UIColor.clear.cgColor
+            self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         }
         
     }

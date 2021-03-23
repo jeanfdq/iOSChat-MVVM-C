@@ -27,7 +27,7 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         let viewModel = LaunchScreenViewModel()
         let vc = LauchScreenViewController(viewModel)
         viewModel.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        navigationController.pushViewController(vc, animated: false)
         
     }
     

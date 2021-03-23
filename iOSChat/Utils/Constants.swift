@@ -9,6 +9,8 @@ import UIKit
 
 struct Constants {
     
+    static let screenWidth: CGFloat = UIScreen.main.bounds.size.width
+    static let screenHeight: CGFloat = UIScreen.main.bounds.size.height
     static let logoTipo = UIImage(named: "chatIcon")
     
     struct TabBar {

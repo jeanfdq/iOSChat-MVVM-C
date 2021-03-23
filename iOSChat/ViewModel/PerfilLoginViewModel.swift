@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PerfilLoginViewModelProtocol: class {
-    func goToSignUp()
+
 }
 
 struct PerfilLoginViewModel {
@@ -16,10 +16,6 @@ struct PerfilLoginViewModel {
     weak var delegate: PerfilLoginViewModelProtocol?
     
     func handleBackground(_ view: UIView) {
-        view.backgroundColor = AppColors.backgroudSecundary()
-    }
-    
-    func goToSignUp() {
-        delegate?.goToSignUp()
+        view.backgroundColor = .yellow
     }
 }

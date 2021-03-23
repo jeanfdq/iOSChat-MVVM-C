@@ -80,4 +80,21 @@ extension UIButton {
         rotation.isCumulative = true
         self.layer.add(rotation, forKey: "rotationAnimation")
     }
+    
+    func buildPrimaryButtonWithCorner(_ title: String) {
+        
+        setAttributedTitle(NSMutableAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .semibold)]), for: .normal)
+        backgroundColor = AppColors.primaryColor()
+        setCorner(radius: 20)
+        
+    }
+    
+    func buildWhiteButtonWithCorner(_ title: String) {
+        
+        setAttributedTitle(NSMutableAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor : AppColors.primaryColor(), NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .semibold)]), for: .normal)
+        backgroundColor = .clear
+        setCorner(radius: 20)
+        setBorder(AppColors.primaryColor(), 0.5)
+    }
+    
 }

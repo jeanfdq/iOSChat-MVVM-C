@@ -12,11 +12,8 @@ class PerfilSignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .yellow
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            self.navigationController?.popViewController(animated: false)
-        }
+        view.backgroundColor = .green
+        setupNavigationBar(isHidden: false, isTranslucent: false, title: "", titleColor: .black, backButtonIsHidden: false, backgroungColor: .white, withShadow: true, animated: false)
     }
 
 }

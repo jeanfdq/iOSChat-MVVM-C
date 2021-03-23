@@ -18,7 +18,7 @@ class PerfilCoordinator: NSObject, Coordinator {
     }
     
     func start() {
-        
+
         let vc = PerfilViewController()
         var vm = PerfilViewModel()
         vm.delegate = self
@@ -40,7 +40,7 @@ class PerfilCoordinator: NSObject, Coordinator {
     
 }
 
-extension PerfilCoordinator: PerfilViewModelCoordinatorProtocol, PerfilLoginViewModelProtocol {
+extension PerfilCoordinator: PerfilViewModelCoordinatorProtocol, PerfilChooseCoordinatorProtocol, PerfilLoginViewModelProtocol {
     
     
     
@@ -48,20 +48,26 @@ extension PerfilCoordinator: PerfilViewModelCoordinatorProtocol, PerfilLoginView
         
         if !isLogged {
 
-            let login   = PerfilLoginViewController()
-            var vm      = PerfilLoginViewModel()
-            vm.delegate     = self
-            login.viewModel = vm
+            let perfilChoose    =    PerfilChooseViewController()
+            var vm                  = PerfilChooseViewModel()
+            vm.delegate             = self
+            perfilChoose.viewModel  = vm
             
-            navigationController.pushViewController(login, animated: false)
+            navigationController.pushViewController(perfilChoose, animated: false)
         }
+    }
+    
+    func goToLogin() {
+        
+        let signUp = PerfilLoginViewController()
+        navigationController.pushViewController(signUp, animated: true)
+        
     }
     
     func goToSignUp() {
         
-        navigationController.popViewController(animated: false)
         let signUp = PerfilSignUpViewController()
-        navigationController.pushViewController(signUp, animated: false)
+        navigationController.pushViewController(signUp, animated: true)
         
     }
     

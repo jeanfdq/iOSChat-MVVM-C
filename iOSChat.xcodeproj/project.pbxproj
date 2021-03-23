@@ -37,6 +37,10 @@
 		8C851A4F260705E600939E0E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A4E260705E600939E0E /* HomeCoordinator.swift */; };
 		8C851A522607069900939E0E /* ConstactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A512607069900939E0E /* ConstactsCoordinator.swift */; };
 		8C851A5526070CAD00939E0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A5426070CAD00939E0E /* Constants.swift */; };
+		8C9BC5B5260954100016287C /* PerfilChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5B4260954100016287C /* PerfilChooseViewController.swift */; };
+		8C9BC5B82609546D0016287C /* PerfilChooseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5B72609546D0016287C /* PerfilChooseViewModel.swift */; };
+		8C9BC5BC2609667E0016287C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5BB2609667E0016287C /* OnBoardingViewController.swift */; };
+		8C9BC5BF260970F70016287C /* OnboardingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5BE260970F70016287C /* OnboardingViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		8C851A4E260705E600939E0E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8C851A512607069900939E0E /* ConstactsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstactsCoordinator.swift; sourceTree = "<group>"; };
 		8C851A5426070CAD00939E0E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8C9BC5B4260954100016287C /* PerfilChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilChooseViewController.swift; sourceTree = "<group>"; };
+		8C9BC5B72609546D0016287C /* PerfilChooseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilChooseViewModel.swift; sourceTree = "<group>"; };
+		8C9BC5BB2609667E0016287C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		8C9BC5BE260970F70016287C /* OnboardingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,7 @@
 		8C44511F260787AB008C8497 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				8C9BC5B4260954100016287C /* PerfilChooseViewController.swift */,
 				8C445120260787BF008C8497 /* PerfilLoginViewController.swift */,
 				8C44512426078AFF008C8497 /* PerfilSignUpViewController.swift */,
 			);
@@ -152,6 +161,8 @@
 				8C6977B32606EA4800DE5AB3 /* HomeViewController.swift */,
 				8C6977B62606EA5200DE5AB3 /* ContactsViewController.swift */,
 				8C44510826077976008C8497 /* PerfilViewController.swift */,
+				8C9BC5BB2609667E0016287C /* OnBoardingViewController.swift */,
+				8C9BC5BE260970F70016287C /* OnboardingViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +193,7 @@
 				8C6977AA2606D7DF00DE5AB3 /* LaunchScreenViewModel.swift */,
 				8C44511C260780C7008C8497 /* PerfilViewModel.swift */,
 				8C44512726078B67008C8497 /* PerfilLoginViewModel.swift */,
+				8C9BC5B72609546D0016287C /* PerfilChooseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -295,6 +307,7 @@
 				8C44510626077938008C8497 /* PerfilCoordinator.swift in Sources */,
 				8C6977A22606CD3700DE5AB3 /* UIView.swift in Sources */,
 				8C69779E2606CB8700DE5AB3 /* UIViewController.swift in Sources */,
+				8C9BC5BC2609667E0016287C /* OnBoardingViewController.swift in Sources */,
 				8C44511226077EDC008C8497 /* UIColor.swift in Sources */,
 				8C44512826078B67008C8497 /* PerfilLoginViewModel.swift in Sources */,
 				8C44510F26077E56008C8497 /* Data.swift in Sources */,
@@ -304,10 +317,13 @@
 				8C69775B26066E2000DE5AB3 /* AppDelegate.swift in Sources */,
 				8C69779926069CCB00DE5AB3 /* MainCoordinator.swift in Sources */,
 				8C6977AE2606DCF800DE5AB3 /* MainTabBarCoordinator.swift in Sources */,
+				8C9BC5BF260970F70016287C /* OnboardingViewCell.swift in Sources */,
 				8C69775D26066E2000DE5AB3 /* SceneDelegate.swift in Sources */,
 				8C44511526077F1B008C8497 /* UIButton.swift in Sources */,
 				8C69779426069B6700DE5AB3 /* Coordinator.swift in Sources */,
 				8C851A522607069900939E0E /* ConstactsCoordinator.swift in Sources */,
+				8C9BC5B5260954100016287C /* PerfilChooseViewController.swift in Sources */,
+				8C9BC5B82609546D0016287C /* PerfilChooseViewModel.swift in Sources */,
 				8C44511D260780C7008C8497 /* PerfilViewModel.swift in Sources */,
 				8C6977B12606E9C900DE5AB3 /* MainTabBarViewController.swift in Sources */,
 				8C44511926078002008C8497 /* DefaultsManager.swift in Sources */,

@@ -59,7 +59,7 @@ class MainTabBarViewController: UITabBarController {
         constacts.start()
         perfil.start()
         
-        setViewControllers([home.navigationController, constacts.navigationController, perfil.navigationController], animated: true)
+        setViewControllers([home.navigationController, constacts.navigationController, perfil.navigationController], animated: false)
         
     }
 //
