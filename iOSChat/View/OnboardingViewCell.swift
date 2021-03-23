@@ -31,15 +31,15 @@ class OnboardingViewCell: UICollectionViewCell {
     
         let loginButton = UIButton(type: .system)
         loginButton.buildPrimaryButtonWithCorner("Log In")
-        loginButton.addTapGesture {
-            
+        loginButton.addTapGesture { [unowned self] in
+            self.goToLogin?()
         }
     
 
         let signUpButton = UIButton(type: .system)
         signUpButton.buildWhiteButtonWithCorner("Sign Up")
-        signUpButton.addTapGesture {
-           
+        signUpButton.addTapGesture { [unowned self] in
+            self.goToSignUp?()
         }
         
         container.addSubViews(logo, screenLabel, loginButton, signUpButton)
@@ -57,6 +57,8 @@ class OnboardingViewCell: UICollectionViewCell {
         
     }()
     
+    var goToLogin: (()->Void)?
+    var goToSignUp: (()->Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,6 +75,5 @@ class OnboardingViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
 }

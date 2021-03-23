@@ -36,6 +36,7 @@ struct Constants {
     
     enum DefaultsManagerKeys: String {
         case userLogged = "userLogged"
+        case isShowOnboarding = "onboarding"
     }
     
 }

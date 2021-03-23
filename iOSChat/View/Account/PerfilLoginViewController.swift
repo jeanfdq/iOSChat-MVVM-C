@@ -26,13 +26,11 @@ class PerfilLoginViewController: UIViewController {
     
     fileprivate func setupUI() {
         viewModel?.handleBackground(view)
-        setupNavigationBar(isHidden: false, isTranslucent: false, title: "", titleColor: .black, backButtonIsHidden: false, backgroungColor: .white, withShadow: true, animated: false)
+        setupNavigationBar(isHidden: true )
     }
     
     fileprivate func addViews() {
-        
         view.addSubview(logo)
-        
     }
     
     fileprivate func setupViews() {

@@ -19,10 +19,29 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     
     func start() {
         navigationController.delegate = self
-        showLauchScreen()
+        startOnboarding()
+        
     }
     
-    private func showLauchScreen(){
+    fileprivate func startOnboarding() {
+        
+        let isShowOnboarding: Bool = DefaultsManager.instance.get(key: .isShowOnboarding) ?? true
+        
+        if isShowOnboarding {
+            showOnboarding()
+        } else {
+            showLauchScreen()
+        }
+    }
+    
+    fileprivate func showOnboarding() {
+        let onboardingCoordinator = OnboardingCoordinator(navigationController)
+        childCoordinator.push(onboardingCoordinator)
+        onboardingCoordinator.coordinatorDelegate = self
+        onboardingCoordinator.start()
+    }
+    
+    fileprivate func showLauchScreen(){
         
         let viewModel = LaunchScreenViewModel()
         let vc = LauchScreenViewController(viewModel)
@@ -39,6 +58,15 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
             return
         }
         
+    }
+    
+}
+
+extension MainCoordinator: OnboardingCoordinatorDelegate {    
+    
+    func onboardingDidFinish() {
+        goToMainTabBarCoordinator()
+        childCoordinator.pop()
     }
     
 }

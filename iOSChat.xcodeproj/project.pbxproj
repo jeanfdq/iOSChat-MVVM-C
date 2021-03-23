@@ -41,6 +41,7 @@
 		8C9BC5B82609546D0016287C /* PerfilChooseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5B72609546D0016287C /* PerfilChooseViewModel.swift */; };
 		8C9BC5BC2609667E0016287C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5BB2609667E0016287C /* OnBoardingViewController.swift */; };
 		8C9BC5BF260970F70016287C /* OnboardingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5BE260970F70016287C /* OnboardingViewCell.swift */; };
+		8C9BC5C2260991130016287C /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5C1260991130016287C /* OnboardingCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		8C9BC5B72609546D0016287C /* PerfilChooseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilChooseViewModel.swift; sourceTree = "<group>"; };
 		8C9BC5BB2609667E0016287C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		8C9BC5BE260970F70016287C /* OnboardingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewCell.swift; sourceTree = "<group>"; };
+		8C9BC5C1260991130016287C /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				8C851A4E260705E600939E0E /* HomeCoordinator.swift */,
 				8C851A512607069900939E0E /* ConstactsCoordinator.swift */,
 				8C44510526077938008C8497 /* PerfilCoordinator.swift */,
+				8C9BC5C1260991130016287C /* OnboardingCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				8C6977AE2606DCF800DE5AB3 /* MainTabBarCoordinator.swift in Sources */,
 				8C9BC5BF260970F70016287C /* OnboardingViewCell.swift in Sources */,
 				8C69775D26066E2000DE5AB3 /* SceneDelegate.swift in Sources */,
+				8C9BC5C2260991130016287C /* OnboardingCoordinator.swift in Sources */,
 				8C44511526077F1B008C8497 /* UIButton.swift in Sources */,
 				8C69779426069B6700DE5AB3 /* Coordinator.swift in Sources */,
 				8C851A522607069900939E0E /* ConstactsCoordinator.swift in Sources */,

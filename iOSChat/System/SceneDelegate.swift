@@ -20,12 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         let navigationController = UINavigationController()
-        
         coordinator = MainCoordinator(navigationController)
-        //coordinator?.start()
+        coordinator?.start()
         
         window = UIWindow(windowScene: scene)
-        window?.rootViewController  = OnBoardingViewController(collectionViewLayout: UICollectionViewFlowLayout())//navigationController
+        window?.rootViewController  = navigationController
         window?.makeKeyAndVisible()
         
     }
