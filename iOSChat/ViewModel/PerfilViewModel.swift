@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PerfilViewModelCoordinatorProtocol: class {
-    func showPerfilScreen(_ isLogged: Bool)
+
 }
 
 struct PerfilViewModel {
@@ -22,7 +22,7 @@ struct PerfilViewModel {
     func verifyUserLogged() {
         
         let isLogged:Bool? = DefaultsManager.instance.get(key: .userLogged) ?? false
-        delegate?.showPerfilScreen(isLogged!)
+        
         
     }
     

@@ -13,15 +13,29 @@ extension UIViewController {
         return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
     }
     
-    func setupNavigationBar(isHidden: Bool = false, isTranslucent: Bool = false, title: String = "", titleColor: UIColor = .red, backButtonIsHidden: Bool = false, backButtonTitle: String = "", backgroungColor: UIColor? = UIColor.white, withShadow: Bool = false, animated: Bool = false) {
+    func setupNavigationBar(isHidden: Bool = false, isTranslucent: Bool = false, title: String = "", isLargeTitle: Bool = false, titleColor: UIColor = .red, backButtonIsHidden: Bool = false, backButtonTitle: String = "", backButtonColor: UIColor = .systemBlue, backgroungColor: UIColor? = UIColor.white, withShadow: Bool = false, animated: Bool = false) {
         
         self.navigationItem.title = title
+        self.navigationController?.navigationBar.prefersLargeTitles = isLargeTitle
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:titleColor]
         self.navigationController?.setNavigationBarHidden(isHidden, animated: animated)
         self.navigationController?.navigationBar.barTintColor = backgroungColor
         self.navigationController?.navigationBar.isTranslucent = isTranslucent
+        
         self.navigationItem.hidesBackButton = backButtonIsHidden
+        self.navigationController?.navigationBar.tintColor = backButtonColor
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: backButtonTitle, style: .plain, target: nil, action: nil)
+        
+        if #available(iOS 13.0, *) {
+            if isLargeTitle {
+                let nav = UINavigationBarAppearance()
+                nav.backgroundColor = backgroungColor
+                nav.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:titleColor]
+                
+                navigationController?.navigationBar.standardAppearance = nav
+                navigationController?.navigationBar.scrollEdgeAppearance = nav
+            }
+        }
         
         if isTranslucent {
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

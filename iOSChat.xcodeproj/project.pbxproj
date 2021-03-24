@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C011FED260AD99B005AA9EB /* BindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C011FEC260AD99B005AA9EB /* BindingTextField.swift */; };
+		8C011FF4260ADD2D005AA9EB /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C011FF3260ADD2D005AA9EB /* UITextField.swift */; };
 		8C44510626077938008C8497 /* PerfilCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C44510526077938008C8497 /* PerfilCoordinator.swift */; };
 		8C44510926077976008C8497 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C44510826077976008C8497 /* PerfilViewController.swift */; };
 		8C44510C26077E26008C8497 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C44510B26077E26008C8497 /* Encodable.swift */; };
@@ -34,6 +36,7 @@
 		8C6977B12606E9C900DE5AB3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6977B02606E9C900DE5AB3 /* MainTabBarViewController.swift */; };
 		8C6977B42606EA4800DE5AB3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6977B32606EA4800DE5AB3 /* HomeViewController.swift */; };
 		8C6977B72606EA5200DE5AB3 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6977B62606EA5200DE5AB3 /* ContactsViewController.swift */; };
+		8C6FA4B6260BE92B006B089B /* PerfilSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6FA4B5260BE92B006B089B /* PerfilSignUpViewModel.swift */; };
 		8C851A4F260705E600939E0E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A4E260705E600939E0E /* HomeCoordinator.swift */; };
 		8C851A522607069900939E0E /* ConstactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A512607069900939E0E /* ConstactsCoordinator.swift */; };
 		8C851A5526070CAD00939E0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A5426070CAD00939E0E /* Constants.swift */; };
@@ -45,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C011FEC260AD99B005AA9EB /* BindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
+		8C011FF3260ADD2D005AA9EB /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		8C44510526077938008C8497 /* PerfilCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilCoordinator.swift; sourceTree = "<group>"; };
 		8C44510826077976008C8497 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		8C44510B26077E26008C8497 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 		8C6977B02606E9C900DE5AB3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		8C6977B32606EA4800DE5AB3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8C6977B62606EA5200DE5AB3 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		8C6FA4B5260BE92B006B089B /* PerfilSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilSignUpViewModel.swift; sourceTree = "<group>"; };
 		8C851A4E260705E600939E0E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8C851A512607069900939E0E /* ConstactsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstactsCoordinator.swift; sourceTree = "<group>"; };
 		8C851A5426070CAD00939E0E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				8C44511826078002008C8497 /* DefaultsManager.swift */,
+				8C011FEC260AD99B005AA9EB /* BindingTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -197,6 +204,7 @@
 				8C44511C260780C7008C8497 /* PerfilViewModel.swift */,
 				8C44512726078B67008C8497 /* PerfilLoginViewModel.swift */,
 				8C9BC5B72609546D0016287C /* PerfilChooseViewModel.swift */,
+				8C6FA4B5260BE92B006B089B /* PerfilSignUpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -230,6 +238,7 @@
 				8C44510E26077E56008C8497 /* Data.swift */,
 				8C44511126077EDC008C8497 /* UIColor.swift */,
 				8C44511426077F1B008C8497 /* UIButton.swift */,
+				8C011FF3260ADD2D005AA9EB /* UITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,6 +317,7 @@
 				8C6977B72606EA5200DE5AB3 /* ContactsViewController.swift in Sources */,
 				8C851A4F260705E600939E0E /* HomeCoordinator.swift in Sources */,
 				8C44510626077938008C8497 /* PerfilCoordinator.swift in Sources */,
+				8C011FED260AD99B005AA9EB /* BindingTextField.swift in Sources */,
 				8C6977A22606CD3700DE5AB3 /* UIView.swift in Sources */,
 				8C69779E2606CB8700DE5AB3 /* UIViewController.swift in Sources */,
 				8C9BC5BC2609667E0016287C /* OnBoardingViewController.swift in Sources */,
@@ -316,8 +326,10 @@
 				8C44510F26077E56008C8497 /* Data.swift in Sources */,
 				8C44510926077976008C8497 /* PerfilViewController.swift in Sources */,
 				8C445121260787BF008C8497 /* PerfilLoginViewController.swift in Sources */,
+				8C6FA4B6260BE92B006B089B /* PerfilSignUpViewModel.swift in Sources */,
 				8C6977AB2606D7DF00DE5AB3 /* LaunchScreenViewModel.swift in Sources */,
 				8C69775B26066E2000DE5AB3 /* AppDelegate.swift in Sources */,
+				8C011FF4260ADD2D005AA9EB /* UITextField.swift in Sources */,
 				8C69779926069CCB00DE5AB3 /* MainCoordinator.swift in Sources */,
 				8C6977AE2606DCF800DE5AB3 /* MainTabBarCoordinator.swift in Sources */,
 				8C9BC5BF260970F70016287C /* OnboardingViewCell.swift in Sources */,

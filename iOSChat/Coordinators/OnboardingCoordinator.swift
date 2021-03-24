@@ -45,10 +45,14 @@ extension OnboardingCoordinator: OnBoardingCoordinatorDelagate {
     }
     
     func goToSignUp() {
-        
+        let vc = PerfilSignUpViewController()
+        let vm = PerfilSignUpViewModel()
+        vc.viewModel = vm
+        navigationController.pushViewController(vc, animated: true)
     }
 }
 
 extension OnboardingCoordinator: PerfilLoginViewModelProtocol {
+    
     
 }

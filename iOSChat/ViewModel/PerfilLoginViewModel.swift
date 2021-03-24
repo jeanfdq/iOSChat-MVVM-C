@@ -13,9 +13,12 @@ protocol PerfilLoginViewModelProtocol: class {
 
 struct PerfilLoginViewModel {
     
+    var email:String = ""
+    var password:String = ""
+    
     weak var delegate: PerfilLoginViewModelProtocol?
     
     func handleBackground(_ view: UIView) {
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
     }
 }

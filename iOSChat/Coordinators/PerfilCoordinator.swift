@@ -40,35 +40,7 @@ class PerfilCoordinator: NSObject, Coordinator {
     
 }
 
-extension PerfilCoordinator: PerfilViewModelCoordinatorProtocol, PerfilChooseCoordinatorProtocol, PerfilLoginViewModelProtocol {
+extension PerfilCoordinator: PerfilViewModelCoordinatorProtocol {
     
-    
-    
-    func showPerfilScreen(_ isLogged: Bool) {
-        
-        if !isLogged {
-
-            let perfilChoose    =    PerfilChooseViewController()
-            var vm                  = PerfilChooseViewModel()
-            vm.delegate             = self
-            perfilChoose.viewModel  = vm
-            
-            navigationController.pushViewController(perfilChoose, animated: false)
-        }
-    }
-    
-    func goToLogin() {
-        
-        let signUp = PerfilLoginViewController()
-        navigationController.pushViewController(signUp, animated: true)
-        
-    }
-    
-    func goToSignUp() {
-        
-        let signUp = PerfilSignUpViewController()
-        navigationController.pushViewController(signUp, animated: true)
-        
-    }
     
 }
