@@ -43,6 +43,14 @@ class PerfilSignUpViewController: UIViewController {
     private lazy var signUpButton: UIButton = {
         let button = UIButton()
         button.buildPrimaryButtonWithCorner("Sign Up")
+        button.addTapGesture { [unowned self] in
+            let isSignUp = self.viewModel?.signUp() ?? false
+            if isSignUp {
+                self.viewModel?.didFinished()
+            } else {
+                button.setShakeAnime()
+            }
+        }
         return button
     }()
     

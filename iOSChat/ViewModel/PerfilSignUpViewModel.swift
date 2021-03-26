@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol PerfilSignUpViewModelDelegete: class {
+    func PerfilSignUpViewModelDidFinish()
+}
+
 struct PerfilSignUpViewModel {
+    
+    weak var delegate: PerfilSignUpViewModelDelegete?
     
     var userFullName: String = ""
     var userCellPhone: String = ""
@@ -17,4 +23,51 @@ struct PerfilSignUpViewModel {
     func handleBackground(_ view: UIView) {
         view.backgroundColor = .white
     }
+    
+    
+    
+    func signUp() -> Bool {
+        
+        if  validForm() {
+            
+            let (context,user) = CoreDataManager.shared.create(User.self)
+            user?.userFullName  = userFullName
+            user?.userCellPhone = userCellPhone
+            user?.userEmail     = userEmail
+            user?.userPassword  = userPassword
+            
+            return CoreDataManager.shared.save(context: context)
+            
+        }
+        
+        return false
+        
+    }
+    
+    func didFinished() {
+        delegate?.PerfilSignUpViewModelDidFinish()
+    }
+    
+    fileprivate func validForm() -> Bool {
+        var sucess = true
+        
+        if userFullName.isEmpty || userFullName.count <= 2{
+            sucess = false
+        }
+        
+        if userCellPhone.count < 11 {
+            sucess = false
+        }
+        
+        if !userEmail.isValidEmail {
+            sucess = false
+        }
+        
+        if userPassword.count != 6 {
+            sucess = false
+        }
+        
+        return sucess
+    }
+    
 }

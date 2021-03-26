@@ -40,6 +40,9 @@
 		8C851A4F260705E600939E0E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A4E260705E600939E0E /* HomeCoordinator.swift */; };
 		8C851A522607069900939E0E /* ConstactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A512607069900939E0E /* ConstactsCoordinator.swift */; };
 		8C851A5526070CAD00939E0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A5426070CAD00939E0E /* Constants.swift */; };
+		8C94D7DB260C36E3008EA8B5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94D7DA260C36E3008EA8B5 /* String.swift */; };
+		8C94D80E260C3BEC008EA8B5 /* iOSChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C94D80C260C3BEC008EA8B5 /* iOSChat.xcdatamodeld */; };
+		8C94D812260C411F008EA8B5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94D811260C411F008EA8B5 /* CoreDataManager.swift */; };
 		8C9BC5B5260954100016287C /* PerfilChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5B4260954100016287C /* PerfilChooseViewController.swift */; };
 		8C9BC5B82609546D0016287C /* PerfilChooseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5B72609546D0016287C /* PerfilChooseViewModel.swift */; };
 		8C9BC5BC2609667E0016287C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BC5BB2609667E0016287C /* OnBoardingViewController.swift */; };
@@ -83,6 +86,9 @@
 		8C851A4E260705E600939E0E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8C851A512607069900939E0E /* ConstactsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstactsCoordinator.swift; sourceTree = "<group>"; };
 		8C851A5426070CAD00939E0E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8C94D7DA260C36E3008EA8B5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8C94D80D260C3BEC008EA8B5 /* database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = database.xcdatamodel; sourceTree = "<group>"; };
+		8C94D811260C411F008EA8B5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8C9BC5B4260954100016287C /* PerfilChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilChooseViewController.swift; sourceTree = "<group>"; };
 		8C9BC5B72609546D0016287C /* PerfilChooseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilChooseViewModel.swift; sourceTree = "<group>"; };
 		8C9BC5BB2609667E0016287C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 			children = (
 				8C44511826078002008C8497 /* DefaultsManager.swift */,
 				8C011FEC260AD99B005AA9EB /* BindingTextField.swift */,
+				8C94D811260C411F008EA8B5 /* CoreDataManager.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -139,6 +146,7 @@
 		8C69775926066E2000DE5AB3 /* iOSChat */ = {
 			isa = PBXGroup;
 			children = (
+				8C94D806260C3B81008EA8B5 /* Database */,
 				8C6977852606893F00DE5AB3 /* System */,
 				8C6977892606895700DE5AB3 /* Coordinators */,
 				8C6977882606895300DE5AB3 /* Model */,
@@ -239,8 +247,17 @@
 				8C44511126077EDC008C8497 /* UIColor.swift */,
 				8C44511426077F1B008C8497 /* UIButton.swift */,
 				8C011FF3260ADD2D005AA9EB /* UITextField.swift */,
+				8C94D7DA260C36E3008EA8B5 /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8C94D806260C3B81008EA8B5 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8C94D80C260C3BEC008EA8B5 /* iOSChat.xcdatamodeld */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C6977A82606D53D00DE5AB3 /* AppColors.swift in Sources */,
+				8C94D812260C411F008EA8B5 /* CoreDataManager.swift in Sources */,
 				8C851A5526070CAD00939E0E /* Constants.swift in Sources */,
 				8C6977B72606EA5200DE5AB3 /* ContactsViewController.swift in Sources */,
 				8C851A4F260705E600939E0E /* HomeCoordinator.swift in Sources */,
@@ -339,12 +357,14 @@
 				8C69779426069B6700DE5AB3 /* Coordinator.swift in Sources */,
 				8C851A522607069900939E0E /* ConstactsCoordinator.swift in Sources */,
 				8C9BC5B5260954100016287C /* PerfilChooseViewController.swift in Sources */,
+				8C94D7DB260C36E3008EA8B5 /* String.swift in Sources */,
 				8C9BC5B82609546D0016287C /* PerfilChooseViewModel.swift in Sources */,
 				8C44511D260780C7008C8497 /* PerfilViewModel.swift in Sources */,
 				8C6977B12606E9C900DE5AB3 /* MainTabBarViewController.swift in Sources */,
 				8C44511926078002008C8497 /* DefaultsManager.swift in Sources */,
 				8C69778C26068A1E00DE5AB3 /* LauchScreenViewController.swift in Sources */,
 				8C44512526078AFF008C8497 /* PerfilSignUpViewController.swift in Sources */,
+				8C94D80E260C3BEC008EA8B5 /* iOSChat.xcdatamodeld in Sources */,
 				8C6977B42606EA4800DE5AB3 /* HomeViewController.swift in Sources */,
 				8C69779126069AA500DE5AB3 /* CoordinatorStack.swift in Sources */,
 				8C44510C26077E26008C8497 /* Encodable.swift in Sources */,
@@ -618,6 +638,19 @@
 			defaultConfigurationName = Homolog;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8C94D80C260C3BEC008EA8B5 /* iOSChat.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8C94D80D260C3BEC008EA8B5 /* database.xcdatamodel */,
+			);
+			currentVersion = 8C94D80D260C3BEC008EA8B5 /* database.xcdatamodel */;
+			path = iOSChat.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8C69774F26066E2000DE5AB3 /* Project object */;
 }

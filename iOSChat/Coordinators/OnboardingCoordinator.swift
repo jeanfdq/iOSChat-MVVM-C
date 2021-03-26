@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol OnboardingCoordinatorDelegate: class {
     func onboardingDidFinish()
@@ -45,14 +46,24 @@ extension OnboardingCoordinator: OnBoardingCoordinatorDelagate {
     }
     
     func goToSignUp() {
+        
         let vc = PerfilSignUpViewController()
-        let vm = PerfilSignUpViewModel()
+        var vm = PerfilSignUpViewModel()
+        vm.delegate = self
         vc.viewModel = vm
         navigationController.pushViewController(vc, animated: true)
+        
     }
 }
 
 extension OnboardingCoordinator: PerfilLoginViewModelProtocol {
     
+}
+
+extension OnboardingCoordinator: PerfilSignUpViewModelDelegete {
+    
+    func PerfilSignUpViewModelDidFinish() {
+        coordinatorDelegate?.onboardingDidFinish()
+    }
     
 }
