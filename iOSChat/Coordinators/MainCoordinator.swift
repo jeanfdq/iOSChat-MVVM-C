@@ -26,6 +26,11 @@ class MainCoordinator  {
     func start() {
         let showOnboarding: Bool = DefaultsManager.instance.get(key: .isShowOnboarding) ?? true
         startProcess(controller: showOnboarding ? .onboarding : .splashscreen)
+        registerObserver()
+    }
+    
+    fileprivate func registerObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.tappedLogout), name: Constants.ObserverNames.logoutUser, object: nil)
     }
     
     fileprivate func startProcess(controller: viewControllerType) {
@@ -51,9 +56,7 @@ class MainCoordinator  {
             return perfilChooseVC
             
         case .main:
-            let tabBarVC = MainTabBarViewController()
-            tabBarVC.mainTabDelegate = self
-            return tabBarVC
+            return MainTabBarViewController()
             
         case .onboarding:
             let layout = UICollectionViewFlowLayout()
@@ -76,25 +79,9 @@ class MainCoordinator  {
     fileprivate func popNavivgation(animated: Bool = false){
         navigation?.popViewController(animated: animated)
     }
-}
-
-extension MainCoordinator: MainTabBarViewControllerDelegate {
     
-    func registrateViewControllers(viewController: UIViewController) {
-        
-        if viewController.isKind(of: PerfilViewController.self) {
-            guard let controller = viewController as? PerfilViewController else {return}
-            var perfilViewModel = PerfilViewModel()
-            perfilViewModel.delegate = self
-            controller.viewModel = perfilViewModel
-            
-        }
-        
-    }
-}
-
-extension MainCoordinator: PerfilViewModelCoordinatorProtocol {
-    func userLogout() {
+    @objc
+    fileprivate func tappedLogout() {
         DefaultsManager.instance.delete(key: .userLogged)
         goToMain()
     }

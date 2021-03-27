@@ -5,8 +5,9 @@
         <attribute name="userEmail" optional="YES" attributeType="String"/>
         <attribute name="userFullName" optional="YES" attributeType="String"/>
         <attribute name="userPassword" optional="YES" attributeType="String"/>
+        <attribute name="userPhoto" optional="YES" attributeType="Binary"/>
     </entity>
     <elements>
-        <element name="User" positionX="-740.7735595703125" positionY="-360.6358642578125" width="128" height="89"/>
+        <element name="User" positionX="-740.7735595703125" positionY="-360.6358642578125" width="128" height="104"/>
     </elements>
 </model>

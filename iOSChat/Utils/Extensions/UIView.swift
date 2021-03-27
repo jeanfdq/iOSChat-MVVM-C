@@ -117,11 +117,11 @@ extension UIView {
         }
         
         if let trailing = trailing {
-            trailingAnchor.constraint(equalTo: trailing, constant: value.right).isActive = true
+            trailingAnchor.constraint(equalTo: trailing, constant: value.right * (-1)).isActive = true
         }
         
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: value.bottom).isActive = true
+            bottomAnchor.constraint(equalTo: bottom, constant: value.bottom * (-1)).isActive = true
         }
         
         if let centerYSuperView = centerY {

@@ -22,13 +22,7 @@ private enum MainTabControllers {
     }
 }
 
-protocol MainTabBarViewControllerDelegate: class {
-    func registrateViewControllers(viewController: UIViewController)
-}
-
 class MainTabBarViewController: UITabBarController {
-
-    weak var mainTabDelegate: MainTabBarViewControllerDelegate?
     
     let home        = HomeCoordinator(UINavigationController())
     let constacts   = ConstactsCoordinator(UINavigationController())
@@ -39,11 +33,6 @@ class MainTabBarViewController: UITabBarController {
         setupTabBar()
         setupTabs()
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        registrateViewControllers()
     }
     
     fileprivate func setupTabBar() {
@@ -66,14 +55,6 @@ class MainTabBarViewController: UITabBarController {
         perfil.start()
 
         setViewControllers([home.navigationController, constacts.navigationController, perfil.navigationController], animated: false)
-
-    }
-    
-    fileprivate func registrateViewControllers() {
-        _ = viewControllers?.map{ navController in
-            let nav = navController as! UINavigationController
-            mainTabDelegate?.registrateViewControllers(viewController: nav.topViewController!)
-        }
 
     }
 }

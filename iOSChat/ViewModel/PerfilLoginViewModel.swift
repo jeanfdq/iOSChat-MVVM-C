@@ -30,7 +30,7 @@ struct PerfilLoginViewModel {
             
             if user[0].userEmail == email && user[0].userPassword == password {
                 
-                DefaultsManager.instance.saveCurrentUser(data: UserModel(fullName: user[0].userFullName ?? "", phoneNumber: user[0].userCellPhone ?? "", email: user[0].userEmail ?? "").toData() ?? Data())
+                DefaultsManager.instance.saveCurrentUser(data: UserModel(fullName: user[0].userFullName ?? "", phoneNumber: user[0].userCellPhone ?? "", email: user[0].userEmail ?? "", photo: user[0].userPhoto ?? Data()).toData() ?? Data())
                 
                 return  true
                 

@@ -67,7 +67,6 @@ class OnBoardingViewController: UICollectionViewController, UICollectionViewDele
             collectionView.contentOffset = .zero
         }else {
             let indexPath = IndexPath(item: pageControl.currentPage, section: 0)
-            debugPrint(indexPath.item)
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
 

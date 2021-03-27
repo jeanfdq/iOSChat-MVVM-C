@@ -15,6 +15,10 @@ struct Constants {
     static let backButton = UIImage(systemName: "chevron.backward")
     static let sizeFieldAndButton: CGSize = .init(width: UIScreen.main.bounds.width * 0.8, height: 42)
     
+    struct ObserverNames {
+        static let logoutUser = Notification.Name(rawValue: "verifyUserLogged")
+    }
+    
     struct TabBar {
         
         static let tintColor = UIColor.white

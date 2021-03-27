@@ -8,6 +8,8 @@
 import UIKit
 
 protocol PerfilViewModelCoordinatorProtocol: class {
+    func goToDetails(userModel: UserModel)
+    func goToSettings(userModel: UserModel)
     func userLogout()
 }
 
@@ -29,6 +31,28 @@ struct PerfilViewModel {
     
     var userFullName: String {
         return userModel?.fullName ?? ""
+    }
+    
+    var userEmail: String {
+        return userModel?.email ?? ""
+    }
+    
+    var userPhoto: UIImage {
+        return userModel?.photo.toImage ?? UIImage(systemName: "person.circle")?.withTintColor(.init(white: 0.8, alpha: 0.6)).withRenderingMode(.alwaysOriginal) ?? UIImage()
+    }
+    
+    func udpateProfileImage(_ image: UIImage) -> Bool {
+        return CoreDataManager.shared.udpateFieldData(email: userEmail, field: "userPhoto", value: image.jpegData(compressionQuality: 0.5)!)
+    }
+    
+    func goToDetails(){
+        guard let userModel = userModel else {return}
+        delegate?.goToDetails(userModel: userModel)
+    }
+    
+    func goToSettings(){
+        guard let userModel = userModel else {return}
+        delegate?.goToSettings(userModel: userModel)
     }
     
     func logout() {

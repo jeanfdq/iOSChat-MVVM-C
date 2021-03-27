@@ -46,6 +46,22 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
+    func udpateFieldData(email: String, field: String, value: Data) -> Bool {
+        let contextUpdate = context()
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "userEmail == %@", email)
+        fetchRequest.returnsObjectsAsFaults = false
+        if let searchResult = try? contextUpdate.fetch(fetchRequest) as? [NSManagedObject] {
+            if searchResult.count > 0 {
+                searchResult[0].setValue(value, forKey: field)
+                return save(context: contextUpdate)
+            }
+            return false
+        }
+        return false
+    }
+    
     func delete<T: NSManagedObject>(_ model: T) -> Bool {
         
         let contextDelete = context()

@@ -11,4 +11,5 @@ struct UserModel: Codable {
     let fullName: String
     let phoneNumber: String
     let email: String
+    let photo: Data
 }
