@@ -38,11 +38,17 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         setupTabBar()
         setupTabs()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registrateViewControllers()
     }
     
     fileprivate func setupTabBar() {
-        
-        
+
+
         tabBar.barTintColor = .white
         tabBar.tintColor = AppColors.primaryColor()
         tabBar.unselectedItemTintColor = AppColors.tabBarUnselected()
@@ -54,12 +60,20 @@ class MainTabBarViewController: UITabBarController {
     }
     
     fileprivate func setupTabs() {
-        
+
         home.start()
         constacts.start()
         perfil.start()
-        
+
         setViewControllers([home.navigationController, constacts.navigationController, perfil.navigationController], animated: false)
-        
+
+    }
+    
+    fileprivate func registrateViewControllers() {
+        _ = viewControllers?.map{ navController in
+            let nav = navController as! UINavigationController
+            mainTabDelegate?.registrateViewControllers(viewController: nav.topViewController!)
+        }
+
     }
 }

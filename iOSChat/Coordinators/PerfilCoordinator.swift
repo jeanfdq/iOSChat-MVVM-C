@@ -18,15 +18,11 @@ class PerfilCoordinator: NSObject, Coordinator {
     }
     
     func start() {
-
-        let vc = PerfilViewController()
-        var vm = PerfilViewModel()
-        vm.delegate = self
-        vc.viewModel = vm
+        
         navigationController.tabBarItem.image = UIImage(systemName: Constants.TabBar.TabBarImage.perfil.rawValue)
         navigationController.tabBarItem.selectedImage = UIImage(systemName: Constants.TabBar.TabBarImage.perfil.rawValue)
         navigationController.tabBarItem.title = Constants.TabBar.TabBarTitle.perfil.rawValue
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.pushViewController(PerfilViewController(), animated: false)
         
     }
     
@@ -38,11 +34,4 @@ class PerfilCoordinator: NSObject, Coordinator {
         navigationController.dismiss(animated: false)
     }
     
-}
-
-extension PerfilCoordinator: PerfilViewModelCoordinatorProtocol {
-    func userLogout() {
-        DefaultsManager.instance.delete(key: .userLogged)
-        pop()
-    }
 }

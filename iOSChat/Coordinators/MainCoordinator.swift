@@ -7,10 +7,11 @@
 
 import UIKit
 
-private enum viewControllerType {
+ enum viewControllerType {
     case onboarding
     case splashscreen
     case main
+    case login
 }
 
 class MainCoordinator  {
@@ -27,35 +28,45 @@ class MainCoordinator  {
         startProcess(controller: showOnboarding ? .onboarding : .splashscreen)
     }
     
-    fileprivate func registerObserver() {
-        
-    }
-    
     fileprivate func startProcess(controller: viewControllerType) {
         
-        navigation = UINavigationController(rootViewController: getViewController(with: controller))
-        window?.rootViewController =  controller == .onboarding ?  navigation : getViewController(with: controller)
+        if controller == .onboarding || controller == .login {
+            navigation = UINavigationController(rootViewController: getViewController(with: controller))
+            window?.rootViewController = navigation
+        } else {
+            window?.rootViewController = getViewController(with: controller)
+        }
         window?.makeKeyAndVisible()
         
     }
     
-    fileprivate func getViewController(with controller: viewControllerType) -> UIViewController {
+     func getViewController(with controller: viewControllerType) -> UIViewController {
         
         switch controller {
+        case .login:
+            let perfilChooseVC = PerfilChooseViewController()
+            var perfilChooseViewModel = PerfilChooseViewModel()
+            perfilChooseViewModel.delegate = self
+            perfilChooseVC.viewModel = perfilChooseViewModel
+            return perfilChooseVC
+            
         case .main:
-            return MainTabBarViewController()
+            let tabBarVC = MainTabBarViewController()
+            tabBarVC.mainTabDelegate = self
+            return tabBarVC
+            
         case .onboarding:
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
             let onboarding = OnBoardingViewController(collectionViewLayout: layout)
             onboarding.delegate = self
             return onboarding
+            
         case .splashscreen:
             let viewModel = LaunchScreenViewModel()
             viewModel.coordinator = self
             return LauchScreenViewController(viewModel)
         }
-        
     }
     
     fileprivate func getNavigation(viewController: UIViewController) -> UINavigationController {
@@ -67,7 +78,29 @@ class MainCoordinator  {
     }
 }
 
-extension MainCoordinator: OnBoardingCoordinatorDelagate {
+extension MainCoordinator: MainTabBarViewControllerDelegate {
+    
+    func registrateViewControllers(viewController: UIViewController) {
+        
+        if viewController.isKind(of: PerfilViewController.self) {
+            guard let controller = viewController as? PerfilViewController else {return}
+            var perfilViewModel = PerfilViewModel()
+            perfilViewModel.delegate = self
+            controller.viewModel = perfilViewModel
+            
+        }
+        
+    }
+}
+
+extension MainCoordinator: PerfilViewModelCoordinatorProtocol {
+    func userLogout() {
+        DefaultsManager.instance.delete(key: .userLogged)
+        goToMain()
+    }
+}
+
+extension MainCoordinator: OnBoardingCoordinatorDelagate, PerfilChooseCoordinatorProtocol {
     
     func goToLogin() {
         
@@ -118,6 +151,11 @@ extension MainCoordinator {
     fileprivate func goToMain() {
         DefaultsManager.instance.save(object: false, key: .isShowOnboarding)
         popNavivgation()
-        startProcess(controller: .main)
+        
+        if let _: Data = DefaultsManager.instance.get(key: .userLogged) {
+            startProcess(controller: .main)
+        } else {
+            startProcess(controller: .login)
+        }
     }
 }
