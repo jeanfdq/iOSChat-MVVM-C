@@ -47,10 +47,15 @@ class PerfilLoginViewController: UIViewController {
         return button
     }()
     
+    override func loadView() {
+        super.loadView()
+        setupUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
+        
         
         view.addSubview(email)
         view.addSubview(password)

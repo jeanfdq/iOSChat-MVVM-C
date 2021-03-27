@@ -15,10 +15,11 @@ extension UIViewController {
     
     func setupNavigationBar(isHidden: Bool = false, isTranslucent: Bool = false, title: String = "", isLargeTitle: Bool = false, titleColor: UIColor = .red, backButtonIsHidden: Bool = false, backButtonTitle: String = "", backButtonColor: UIColor = .systemBlue, backgroungColor: UIColor = .white, withShadow: Bool = false, animated: Bool = false) {
         
+        self.navigationController?.navigationBar.isHidden = isHidden
         self.navigationItem.title = title
         self.navigationController?.navigationBar.prefersLargeTitles = isLargeTitle
+        self.navigationController?.navigationBar.sizeToFit()
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:titleColor]
-        self.navigationController?.setNavigationBarHidden(isHidden, animated: animated)
         self.navigationController?.navigationBar.barTintColor = backgroungColor
         self.navigationController?.navigationBar.isTranslucent = isTranslucent
         
