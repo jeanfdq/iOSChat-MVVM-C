@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PerfilLoginViewModelProtocol: class {
-
+    func PerfilLoginViewModelDidFinish()
 }
 
 struct PerfilLoginViewModel {
@@ -20,5 +20,29 @@ struct PerfilLoginViewModel {
     
     func handleBackground(_ view: UIView) {
         view.backgroundColor = .white
+    }
+    
+    func login() -> Bool {
+        
+        let user = CoreDataManager.shared.fetchData(User.self, predicate: NSPredicate.buildPredicateWithUserEmail(email))
+        
+        if user.count > 0 {
+            
+            if user[0].userEmail == email && user[0].userPassword == password {
+                
+                DefaultsManager.instance.saveCurrentUser(data: UserModel(fullName: user[0].userFullName ?? "", phoneNumber: user[0].userCellPhone ?? "", email: user[0].userEmail ?? "").toData() ?? Data())
+                
+                return  true
+                
+            }
+            
+        }
+        
+        return false
+        
+    }
+    
+    func didFinish() {
+        delegate?.PerfilLoginViewModelDidFinish()
     }
 }

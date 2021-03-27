@@ -43,6 +43,11 @@ class DefaultsManager {
         sync()
     }
     
+    func saveCurrentUser( data: Data) {
+        delete(key: .userLogged)
+        save(object: data, key: .userLogged)
+    }
+    
     // MARK: Helpers
     
     fileprivate func standard() -> UserDefaults {

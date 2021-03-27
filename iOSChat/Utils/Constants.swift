@@ -13,6 +13,7 @@ struct Constants {
     static let screenHeight: CGFloat = UIScreen.main.bounds.size.height
     static let logoTipo = UIImage(named: "chatIcon")
     static let backButton = UIImage(systemName: "chevron.backward")
+    static let sizeFieldAndButton: CGSize = .init(width: UIScreen.main.bounds.width * 0.8, height: 42)
     
     struct TabBar {
         

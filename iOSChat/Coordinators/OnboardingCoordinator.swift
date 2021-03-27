@@ -32,6 +32,11 @@ class OnboardingCoordinator: NSObject, Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
+    func pop(){
+        navigationController.popViewController(animated: true)
+        navigationController.dismiss(animated: true)
+    }
+    
 }
 
 extension OnboardingCoordinator: OnBoardingCoordinatorDelagate {
@@ -58,11 +63,17 @@ extension OnboardingCoordinator: OnBoardingCoordinatorDelagate {
 
 extension OnboardingCoordinator: PerfilLoginViewModelProtocol {
     
+    func PerfilLoginViewModelDidFinish() {
+        pop()
+        coordinatorDelegate?.onboardingDidFinish()
+    }
+    
 }
 
 extension OnboardingCoordinator: PerfilSignUpViewModelDelegete {
     
     func PerfilSignUpViewModelDidFinish() {
+        pop()
         coordinatorDelegate?.onboardingDidFinish()
     }
     

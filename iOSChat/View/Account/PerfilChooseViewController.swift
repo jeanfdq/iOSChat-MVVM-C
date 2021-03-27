@@ -46,6 +46,7 @@ class PerfilChooseViewController: UIViewController {
         super.viewDidLoad()
         addViews()
         setupViews()
+        setupNavigationBar(isHidden: true, isTranslucent: false, title: "", backButtonIsHidden: true, backgroungColor: AppColors.backgroudSecundary() )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +56,7 @@ class PerfilChooseViewController: UIViewController {
     
     fileprivate func setupUI() {
         viewModel?.handleBackground(view)
-        setupNavigationBar(isHidden: false, isTranslucent: false, title: "", backButtonIsHidden: true, backgroungColor: AppColors.backgroudSecundary() )
+        
     }
 
     fileprivate func addViews() {

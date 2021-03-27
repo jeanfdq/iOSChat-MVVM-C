@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        
         setupNavigationBar(isHidden: false, isTranslucent: false, title: Constants.TabBar.TabBarTitle.home.rawValue, titleColor: .black, backgroungColor: .white, withShadow: true)
     }
 

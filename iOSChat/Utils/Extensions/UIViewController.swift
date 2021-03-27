@@ -13,7 +13,7 @@ extension UIViewController {
         return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
     }
     
-    func setupNavigationBar(isHidden: Bool = false, isTranslucent: Bool = false, title: String = "", isLargeTitle: Bool = false, titleColor: UIColor = .red, backButtonIsHidden: Bool = false, backButtonTitle: String = "", backButtonColor: UIColor = .systemBlue, backgroungColor: UIColor? = UIColor.white, withShadow: Bool = false, animated: Bool = false) {
+    func setupNavigationBar(isHidden: Bool = false, isTranslucent: Bool = false, title: String = "", isLargeTitle: Bool = false, titleColor: UIColor = .red, backButtonIsHidden: Bool = false, backButtonTitle: String = "", backButtonColor: UIColor = .systemBlue, backgroungColor: UIColor = .white, withShadow: Bool = false, animated: Bool = false) {
         
         self.navigationItem.title = title
         self.navigationController?.navigationBar.prefersLargeTitles = isLargeTitle

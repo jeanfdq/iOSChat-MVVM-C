@@ -36,17 +36,17 @@ class MainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupTabBar()
         setupTabs()
-        //registrateViewControllers()
     }
     
     fileprivate func setupTabBar() {
+        
+        
         tabBar.barTintColor = .white
         tabBar.tintColor = AppColors.primaryColor()
         tabBar.unselectedItemTintColor = AppColors.tabBarUnselected()
-        
+
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowRadius = 2
         tabBar.layer.shadowColor = UIColor.black.cgColor
@@ -62,12 +62,4 @@ class MainTabBarViewController: UITabBarController {
         setViewControllers([home.navigationController, constacts.navigationController, perfil.navigationController], animated: false)
         
     }
-//
-//    fileprivate func registrateViewControllers() {
-//        guard let viewControllers = viewControllers else {return}
-//        for viewController in viewControllers {
-//            self.mainTabDelegate?.registrateViewControllers(viewController: viewController.)
-//        }
-//    }
-
 }

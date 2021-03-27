@@ -32,11 +32,13 @@
 		8C6977A52606D4E400DE5AB3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6977A42606D4E400DE5AB3 /* Colors.xcassets */; };
 		8C6977A82606D53D00DE5AB3 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6977A72606D53D00DE5AB3 /* AppColors.swift */; };
 		8C6977AB2606D7DF00DE5AB3 /* LaunchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6977AA2606D7DF00DE5AB3 /* LaunchScreenViewModel.swift */; };
-		8C6977AE2606DCF800DE5AB3 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6977AD2606DCF800DE5AB3 /* MainTabBarCoordinator.swift */; };
 		8C6977B12606E9C900DE5AB3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6977B02606E9C900DE5AB3 /* MainTabBarViewController.swift */; };
 		8C6977B42606EA4800DE5AB3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6977B32606EA4800DE5AB3 /* HomeViewController.swift */; };
 		8C6977B72606EA5200DE5AB3 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6977B62606EA5200DE5AB3 /* ContactsViewController.swift */; };
 		8C6FA4B6260BE92B006B089B /* PerfilSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6FA4B5260BE92B006B089B /* PerfilSignUpViewModel.swift */; };
+		8C732A1B260E877A00FD0CB3 /* NSPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C732A1A260E877A00FD0CB3 /* NSPredicate.swift */; };
+		8C732A20260EDB6500FD0CB3 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C732A1F260EDB6500FD0CB3 /* MainNavigationController.swift */; };
+		8C732A24260EEE9900FD0CB3 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C732A23260EEE9800FD0CB3 /* UserModel.swift */; };
 		8C851A4F260705E600939E0E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A4E260705E600939E0E /* HomeCoordinator.swift */; };
 		8C851A522607069900939E0E /* ConstactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A512607069900939E0E /* ConstactsCoordinator.swift */; };
 		8C851A5526070CAD00939E0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C851A5426070CAD00939E0E /* Constants.swift */; };
@@ -78,11 +80,13 @@
 		8C6977A42606D4E400DE5AB3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8C6977A72606D53D00DE5AB3 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		8C6977AA2606D7DF00DE5AB3 /* LaunchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewModel.swift; sourceTree = "<group>"; };
-		8C6977AD2606DCF800DE5AB3 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
 		8C6977B02606E9C900DE5AB3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		8C6977B32606EA4800DE5AB3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8C6977B62606EA5200DE5AB3 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		8C6FA4B5260BE92B006B089B /* PerfilSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilSignUpViewModel.swift; sourceTree = "<group>"; };
+		8C732A1A260E877A00FD0CB3 /* NSPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicate.swift; sourceTree = "<group>"; };
+		8C732A1F260EDB6500FD0CB3 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		8C732A23260EEE9800FD0CB3 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8C851A4E260705E600939E0E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8C851A512607069900939E0E /* ConstactsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstactsCoordinator.swift; sourceTree = "<group>"; };
 		8C851A5426070CAD00939E0E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 				8C44511826078002008C8497 /* DefaultsManager.swift */,
 				8C011FEC260AD99B005AA9EB /* BindingTextField.swift */,
 				8C94D811260C411F008EA8B5 /* CoreDataManager.swift */,
+				8C732A1F260EDB6500FD0CB3 /* MainNavigationController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 		8C6977882606895300DE5AB3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8C732A23260EEE9800FD0CB3 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,7 +202,6 @@
 			children = (
 				8C69779626069C0000DE5AB3 /* Common */,
 				8C69779826069CCB00DE5AB3 /* MainCoordinator.swift */,
-				8C6977AD2606DCF800DE5AB3 /* MainTabBarCoordinator.swift */,
 				8C851A4E260705E600939E0E /* HomeCoordinator.swift */,
 				8C851A512607069900939E0E /* ConstactsCoordinator.swift */,
 				8C44510526077938008C8497 /* PerfilCoordinator.swift */,
@@ -248,6 +253,7 @@
 				8C44511426077F1B008C8497 /* UIButton.swift */,
 				8C011FF3260ADD2D005AA9EB /* UITextField.swift */,
 				8C94D7DA260C36E3008EA8B5 /* String.swift */,
+				8C732A1A260E877A00FD0CB3 /* NSPredicate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,9 +341,12 @@
 				8C6977B72606EA5200DE5AB3 /* ContactsViewController.swift in Sources */,
 				8C851A4F260705E600939E0E /* HomeCoordinator.swift in Sources */,
 				8C44510626077938008C8497 /* PerfilCoordinator.swift in Sources */,
+				8C732A1B260E877A00FD0CB3 /* NSPredicate.swift in Sources */,
+				8C732A24260EEE9900FD0CB3 /* UserModel.swift in Sources */,
 				8C011FED260AD99B005AA9EB /* BindingTextField.swift in Sources */,
 				8C6977A22606CD3700DE5AB3 /* UIView.swift in Sources */,
 				8C69779E2606CB8700DE5AB3 /* UIViewController.swift in Sources */,
+				8C732A20260EDB6500FD0CB3 /* MainNavigationController.swift in Sources */,
 				8C9BC5BC2609667E0016287C /* OnBoardingViewController.swift in Sources */,
 				8C44511226077EDC008C8497 /* UIColor.swift in Sources */,
 				8C44512826078B67008C8497 /* PerfilLoginViewModel.swift in Sources */,
@@ -349,7 +358,6 @@
 				8C69775B26066E2000DE5AB3 /* AppDelegate.swift in Sources */,
 				8C011FF4260ADD2D005AA9EB /* UITextField.swift in Sources */,
 				8C69779926069CCB00DE5AB3 /* MainCoordinator.swift in Sources */,
-				8C6977AE2606DCF800DE5AB3 /* MainTabBarCoordinator.swift in Sources */,
 				8C9BC5BF260970F70016287C /* OnboardingViewCell.swift in Sources */,
 				8C69775D26066E2000DE5AB3 /* SceneDelegate.swift in Sources */,
 				8C9BC5C2260991130016287C /* OnboardingCoordinator.swift in Sources */,

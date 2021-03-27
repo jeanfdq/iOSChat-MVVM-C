@@ -10,7 +10,6 @@ import UIKit
 class PerfilSignUpViewController: UIViewController {
 
     var viewModel: PerfilSignUpViewModel?
-    let fieldSize: CGSize = .init(width: UIScreen.main.bounds.width * 0.8, height: 42)
     
     private lazy var fullName: BindingTextField = {
         let fullName = BindingTextField()
@@ -77,11 +76,11 @@ class PerfilSignUpViewController: UIViewController {
     }
     
     fileprivate func setupContrantsViews() {
-        fullName.applyViewConstraints(top: view.safeAreaLayoutGuide.topAnchor, centerX: view.centerXAnchor, size: fieldSize, value: .init(top: 40, left: 0, bottom: 0, right: 0))
-        cellPhone.applyViewConstraints(top: fullName.bottomAnchor, centerX: view.centerXAnchor, size: fieldSize, value: .init(top: 20, left: 0, bottom: 0, right: 0))
-        email.applyViewConstraints(top: cellPhone.bottomAnchor, centerX: view.centerXAnchor, size: fieldSize, value: .init(top: 20, left: 0, bottom: 0, right: 0))
-        password.applyViewConstraints(top: email.bottomAnchor, centerX: view.centerXAnchor, size: fieldSize, value: .init(top: 20, left: 0, bottom: 0, right: 0))
-        signUpButton.applyViewConstraints(top: password.bottomAnchor, centerX: view.centerXAnchor, size: fieldSize, value: .init(top: 20, left: 0, bottom: 0, right: 0))
+        fullName.applyViewConstraints(top: view.safeAreaLayoutGuide.topAnchor, centerX: view.centerXAnchor, size: Constants.sizeFieldAndButton, value: .init(top: 40, left: 0, bottom: 0, right: 0))
+        cellPhone.applyViewConstraints(top: fullName.bottomAnchor, centerX: view.centerXAnchor, size: Constants.sizeFieldAndButton, value: .init(top: 20, left: 0, bottom: 0, right: 0))
+        email.applyViewConstraints(top: cellPhone.bottomAnchor, centerX: view.centerXAnchor, size: Constants.sizeFieldAndButton, value: .init(top: 20, left: 0, bottom: 0, right: 0))
+        password.applyViewConstraints(top: email.bottomAnchor, centerX: view.centerXAnchor, size: Constants.sizeFieldAndButton, value: .init(top: 20, left: 0, bottom: 0, right: 0))
+        signUpButton.applyViewConstraints(top: password.bottomAnchor, centerX: view.centerXAnchor, size: Constants.sizeFieldAndButton, value: .init(top: 20, left: 0, bottom: 0, right: 0))
     }
 
 }

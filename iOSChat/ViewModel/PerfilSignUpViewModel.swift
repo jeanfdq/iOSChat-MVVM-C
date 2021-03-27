@@ -36,10 +36,13 @@ struct PerfilSignUpViewModel {
             user?.userEmail     = userEmail
             user?.userPassword  = userPassword
             
-            return CoreDataManager.shared.save(context: context)
+            if CoreDataManager.shared.save(context: context) {
+                DefaultsManager.instance.saveCurrentUser(data: UserModel(fullName: userFullName, phoneNumber: userCellPhone, email: userEmail).toData() ?? Data())
+                return true
+            }
+            return false
             
         }
-        
         return false
         
     }

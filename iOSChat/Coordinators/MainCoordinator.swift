@@ -7,66 +7,101 @@
 
 import UIKit
 
-class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
+private enum viewControllerType {
+    case onboarding
+    case splashscreen
+    case main
+}
+
+class MainCoordinator  {
     
-    var childCoordinator = CoordinatorStack<Coordinator>()
+    var window: UIWindow?
+    var navigation: UINavigationController?
     
-    var navigationController: UINavigationController
-    
-    init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init( _ window: UIWindow?) {
+        self.window = window
     }
     
     func start() {
-        navigationController.delegate = self
-        startOnboarding()
+        let showOnboarding: Bool = DefaultsManager.instance.get(key: .isShowOnboarding) ?? true
+        startProcess(controller: showOnboarding ? .onboarding : .splashscreen)
+    }
+    
+    fileprivate func registerObserver() {
         
     }
     
-    fileprivate func startOnboarding() {
+    fileprivate func startProcess(controller: viewControllerType) {
         
-        let isShowOnboarding: Bool = DefaultsManager.instance.get(key: .isShowOnboarding) ?? true
-        
-        if isShowOnboarding {
-            showOnboarding()
-        } else {
-            showLauchScreen()
-        }
-    }
-    
-    fileprivate func showOnboarding() {
-        let onboardingCoordinator = OnboardingCoordinator(navigationController)
-        childCoordinator.push(onboardingCoordinator)
-        onboardingCoordinator.coordinatorDelegate = self
-        onboardingCoordinator.start()
-    }
-    
-    fileprivate func showLauchScreen(){
-        
-        let viewModel = LaunchScreenViewModel()
-        let vc = LauchScreenViewController(viewModel)
-        viewModel.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+        navigation = UINavigationController(rootViewController: getViewController(with: controller))
+        window?.rootViewController =  controller == .onboarding ?  navigation : getViewController(with: controller)
+        window?.makeKeyAndVisible()
         
     }
     
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    fileprivate func getViewController(with controller: viewControllerType) -> UIViewController {
         
-        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {return }
-        
-        if navigationController.viewControllers.contains(fromViewController) {
-            return
+        switch controller {
+        case .main:
+            return MainTabBarViewController()
+        case .onboarding:
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            let onboarding = OnBoardingViewController(collectionViewLayout: layout)
+            onboarding.delegate = self
+            return onboarding
+        case .splashscreen:
+            let viewModel = LaunchScreenViewModel()
+            viewModel.coordinator = self
+            return LauchScreenViewController(viewModel)
         }
         
+    }
+    
+    fileprivate func getNavigation(viewController: UIViewController) -> UINavigationController {
+        return UINavigationController(rootViewController: viewController)
+    }
+    
+    fileprivate func popNavivgation(animated: Bool = false){
+        navigation?.popViewController(animated: animated)
+    }
+}
+
+extension MainCoordinator: OnBoardingCoordinatorDelagate {
+    
+    func goToLogin() {
+        
+        let loginVC             = PerfilLoginViewController()
+        var loginViewModel      = PerfilLoginViewModel()
+        loginViewModel.delegate = self
+        loginVC.viewModel       = loginViewModel
+        navigation?.pushViewController(loginVC, animated: true)
+        
+    }
+    
+    func goToSignUp() {
+        
+        let signUpVC                = PerfilSignUpViewController()
+        var signUpViewModel         = PerfilSignUpViewModel()
+        signUpViewModel.delegate    = self
+        signUpVC.viewModel          = signUpViewModel
+        navigation?.pushViewController(signUpVC, animated: true)
+    }
+    
+    
+}
+
+extension MainCoordinator: PerfilLoginViewModelProtocol {
+    func PerfilLoginViewModelDidFinish() {
+        goToMain()
     }
     
 }
 
-extension MainCoordinator: OnboardingCoordinatorDelegate {    
+extension MainCoordinator: PerfilSignUpViewModelDelegete {
     
-    func onboardingDidFinish() {
-        goToMainTabBarCoordinator()
-        childCoordinator.pop()
+    func PerfilSignUpViewModelDidFinish() {
+        goToMain()
     }
     
 }
@@ -74,19 +109,15 @@ extension MainCoordinator: OnboardingCoordinatorDelegate {
 extension MainCoordinator: LaunchScreenViewModelCoordinatorDelegate {
     
     func launchScreenCoordinatorGoToMainTabBar() {
-        goToMainTabBarCoordinator()
+        goToMain()
     }
     
 }
 
-extension MainCoordinator: MainTabBarCoordinatorDelegate {
-    
-    func goToMainTabBarCoordinator() {
-        
-        let mainTabBarCoordinator = MainTabBarCoordinator(navigationController)
-        childCoordinator.push(mainTabBarCoordinator)
-        mainTabBarCoordinator.coordinator = self
-        mainTabBarCoordinator.start()
+extension MainCoordinator {
+    fileprivate func goToMain() {
+        DefaultsManager.instance.save(object: false, key: .isShowOnboarding)
+        popNavivgation()
+        startProcess(controller: .main)
     }
-    
 }

@@ -10,7 +10,6 @@ import UIKit
 class PerfilLoginViewController: UIViewController {
     
     var viewModel: PerfilLoginViewModel?
-    let fieldSize: CGSize = .init(width: UIScreen.main.bounds.width * 0.8, height: 42)
     
     private lazy var email: BindingTextField = {
         let email = BindingTextField()
@@ -37,6 +36,14 @@ class PerfilLoginViewController: UIViewController {
     private lazy var loginButton: UIButton = {
         let button = UIButton()
         button.buildPrimaryButtonWithCorner("Log In")
+        button.addTapGesture { [unowned self] in
+            let isLogged = self.viewModel?.login() ?? false
+            if isLogged {
+                self.viewModel?.didFinish()
+            } else {
+                button.setShakeAnime()
+            }
+        }
         return button
     }()
     
@@ -50,10 +57,10 @@ class PerfilLoginViewController: UIViewController {
         view.addSubview(forgotPassword)
         view.addSubview(loginButton)
         
-        email.applyViewConstraints(top: view.safeAreaLayoutGuide.topAnchor, centerX: view.centerXAnchor, size: fieldSize, value: .init(top: 40, left: 0, bottom: 0, right: 0))
-        password.applyViewConstraints(top: email.bottomAnchor, centerX: view.centerXAnchor, size: fieldSize, value: .init(top: 20, left: 0, bottom: 0, right: 0))
+        email.applyViewConstraints(top: view.safeAreaLayoutGuide.topAnchor, centerX: view.centerXAnchor, size: Constants.sizeFieldAndButton, value: .init(top: 40, left: 0, bottom: 0, right: 0))
+        password.applyViewConstraints(top: email.bottomAnchor, centerX: view.centerXAnchor, size: Constants.sizeFieldAndButton, value: .init(top: 20, left: 0, bottom: 0, right: 0))
         forgotPassword.applyViewConstraints( top: password.bottomAnchor, trailing: password.trailingAnchor,  value: .init(top: 20, left: 0, bottom: 0, right: 0))
-        loginButton.applyViewConstraints(top: forgotPassword.bottomAnchor, centerX: view.centerXAnchor, size: fieldSize, value: .init(top: 20, left: 0, bottom: 0, right: 0))
+        loginButton.applyViewConstraints(top: forgotPassword.bottomAnchor, centerX: view.centerXAnchor, size: Constants.sizeFieldAndButton, value: .init(top: 20, left: 0, bottom: 0, right: 0))
     }
     
     fileprivate func setupUI() {

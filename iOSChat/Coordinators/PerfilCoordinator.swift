@@ -41,6 +41,8 @@ class PerfilCoordinator: NSObject, Coordinator {
 }
 
 extension PerfilCoordinator: PerfilViewModelCoordinatorProtocol {
-    
-    
+    func userLogout() {
+        DefaultsManager.instance.delete(key: .userLogged)
+        pop()
+    }
 }

@@ -46,9 +46,6 @@ class OnBoardingViewController: UICollectionViewController, UICollectionViewDele
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.collectionViewLayout.invalidateLayout()
         collectionView.showsHorizontalScrollIndicator = false
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.scrollDirection = .horizontal
-        }
         // Register cell classes
         self.collectionView.register(OnboardingViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }

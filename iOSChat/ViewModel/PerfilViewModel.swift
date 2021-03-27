@@ -8,22 +8,31 @@
 import UIKit
 
 protocol PerfilViewModelCoordinatorProtocol: class {
-
+    func userLogout()
 }
 
 struct PerfilViewModel {
     
+    private var userModel: UserModel?
+    
     weak var delegate: PerfilViewModelCoordinatorProtocol?
     
     func handleBackgroud(_ view: UIView) {
-        view.backgroundColor = .red
+        view.backgroundColor = .white
     }
     
-    func verifyUserLogged() {
-        
-        let isLogged:Bool? = DefaultsManager.instance.get(key: .userLogged) ?? false
-        
-        
+    mutating func currentUserData() {
+        if let userModelData: Data? = DefaultsManager.instance.get(key: .userLogged) {
+            userModel = userModelData?.toModel()
+        }
+    }
+    
+    var userFullName: String {
+        return userModel?.fullName ?? ""
+    }
+    
+    func logout() {
+        delegate?.userLogout()
     }
     
 }
