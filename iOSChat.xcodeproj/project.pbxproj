@@ -26,6 +26,9 @@
 		8C445121260787BF008C8497 /* PerfilLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445120260787BF008C8497 /* PerfilLoginViewController.swift */; };
 		8C44512526078AFF008C8497 /* PerfilSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C44512426078AFF008C8497 /* PerfilSignUpViewController.swift */; };
 		8C44512826078B67008C8497 /* PerfilLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C44512726078B67008C8497 /* PerfilLoginViewModel.swift */; };
+		8C5F274026113E62008AA0FA /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5F273F26113E62008AA0FA /* UIAlertController.swift */; };
+		8C5F274326116551008AA0FA /* UserUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5F274226116551008AA0FA /* UserUpdateModel.swift */; };
+		8C5F274826117E79008AA0FA /* Authorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5F274726117E79008AA0FA /* Authorize.swift */; };
 		8C69775B26066E2000DE5AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C69775A26066E2000DE5AB3 /* AppDelegate.swift */; };
 		8C69775D26066E2000DE5AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C69775C26066E2000DE5AB3 /* SceneDelegate.swift */; };
 		8C69776426066E2200DE5AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C69776326066E2200DE5AB3 /* Assets.xcassets */; };
@@ -78,6 +81,9 @@
 		8C445120260787BF008C8497 /* PerfilLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilLoginViewController.swift; sourceTree = "<group>"; };
 		8C44512426078AFF008C8497 /* PerfilSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilSignUpViewController.swift; sourceTree = "<group>"; };
 		8C44512726078B67008C8497 /* PerfilLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilLoginViewModel.swift; sourceTree = "<group>"; };
+		8C5F273F26113E62008AA0FA /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		8C5F274226116551008AA0FA /* UserUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateModel.swift; sourceTree = "<group>"; };
+		8C5F274726117E79008AA0FA /* Authorize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorize.swift; sourceTree = "<group>"; };
 		8C69775726066E2000DE5AB3 /* iOSChat-HML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOSChat-HML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C69775A26066E2000DE5AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C69775C26066E2000DE5AB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 				8C94D811260C411F008EA8B5 /* CoreDataManager.swift */,
 				8C732A1F260EDB6500FD0CB3 /* MainNavigationController.swift */,
 				8C36A275260FAEA900816493 /* PickerView.swift */,
+				8C5F274726117E79008AA0FA /* Authorize.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				8C732A23260EEE9800FD0CB3 /* UserModel.swift */,
+				8C5F274226116551008AA0FA /* UserUpdateModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +280,7 @@
 				8C94D7DA260C36E3008EA8B5 /* String.swift */,
 				8C732A1A260E877A00FD0CB3 /* NSPredicate.swift */,
 				8C36A278260FB0C700816493 /* UIAlertAction.swift */,
+				8C5F273F26113E62008AA0FA /* UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,6 +379,7 @@
 				8C44511226077EDC008C8497 /* UIColor.swift in Sources */,
 				8C44512826078B67008C8497 /* PerfilLoginViewModel.swift in Sources */,
 				8C44510F26077E56008C8497 /* Data.swift in Sources */,
+				8C5F274326116551008AA0FA /* UserUpdateModel.swift in Sources */,
 				8C44510926077976008C8497 /* PerfilViewController.swift in Sources */,
 				8C445121260787BF008C8497 /* PerfilLoginViewController.swift in Sources */,
 				8C6FA4B6260BE92B006B089B /* PerfilSignUpViewModel.swift in Sources */,
@@ -377,10 +387,12 @@
 				8C69775B26066E2000DE5AB3 /* AppDelegate.swift in Sources */,
 				8C011FF4260ADD2D005AA9EB /* UITextField.swift in Sources */,
 				8C36A27F260FC69E00816493 /* PerfilSettingsViewController.swift in Sources */,
+				8C5F274826117E79008AA0FA /* Authorize.swift in Sources */,
 				8C69779926069CCB00DE5AB3 /* MainCoordinator.swift in Sources */,
 				8C9BC5BF260970F70016287C /* OnboardingViewCell.swift in Sources */,
 				8C69775D26066E2000DE5AB3 /* SceneDelegate.swift in Sources */,
 				8C9BC5C2260991130016287C /* OnboardingCoordinator.swift in Sources */,
+				8C5F274026113E62008AA0FA /* UIAlertController.swift in Sources */,
 				8C36A276260FAEA900816493 /* PickerView.swift in Sources */,
 				8C44511526077F1B008C8497 /* UIButton.swift in Sources */,
 				8C69779426069B6700DE5AB3 /* Coordinator.swift in Sources */,

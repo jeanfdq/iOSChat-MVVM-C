@@ -23,7 +23,7 @@ class OnBoardingViewController: UICollectionViewController, UICollectionViewDele
     private lazy var pageControl:UIPageControl = {
         let pg = UIPageControl()
         pg.currentPage = 0
-        pg.currentPageIndicatorTintColor = pg.currentPage == imagesOnBoarding.count ? AppColors.primaryColor() : .white
+        pg.currentPageIndicatorTintColor =  .white
         pg.pageIndicatorTintColor = .init(white: 0.5, alpha: 0.7)
         pg.numberOfPages = imagesOnBoarding.count
         return pg
@@ -58,7 +58,7 @@ class OnBoardingViewController: UICollectionViewController, UICollectionViewDele
     fileprivate func setupView() {
         
         view.addSubview(pageControl)
-        pageControl.applyViewConstraints( bottom: view.bottomAnchor, centerX: view.centerXAnchor, value: .init(top: 0, left: 0, bottom: -40, right: 0))
+        pageControl.applyViewConstraints( bottom: view.bottomAnchor, centerX: view.centerXAnchor, value: .init(top: 0, left: 0, bottom: 40, right: 0))
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

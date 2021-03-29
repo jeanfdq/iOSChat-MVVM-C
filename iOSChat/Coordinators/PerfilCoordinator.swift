@@ -19,8 +19,10 @@ class PerfilCoordinator: NSObject, Coordinator {
     
     func start() {
         
+        guard let user = DefaultsManager.instance.currentUserData() else {return}
+        
         let perfilVC = PerfilViewController()
-        var viewModel = PerfilViewModel()
+        var viewModel = PerfilViewModel(user: user)
         viewModel.delegate = self
         perfilVC.viewModel = viewModel
         navigationController.tabBarItem.image = UIImage(systemName: Constants.TabBar.TabBarImage.perfil.rawValue)
@@ -45,16 +47,15 @@ extension PerfilCoordinator: PerfilViewModelCoordinatorProtocol {
     
     func goToDetails(userModel: UserModel) {
         let perfilDetailsVC         = PerfilDetailsViewController()
-        let detailsViewModel        = PerfilDetailsViewModel()
-        detailsViewModel.user       = userModel
+        let detailsViewModel        = PerfilDetailsViewModel(user: userModel)
+        detailsViewModel.delegate   = self
         perfilDetailsVC.viewModel   = detailsViewModel
         navigationController.pushViewController(perfilDetailsVC, animated: true)
     }
     
     func goToSettings(userModel: UserModel) {
         let perfilSettingsVC        = PerfilSettingsViewController()
-        let setingsViewModel        = PerfilSettingsViewModel()
-        setingsViewModel.user       = userModel
+        let setingsViewModel        = PerfilSettingsViewModel(user: userModel)
         perfilSettingsVC.viewModel  = setingsViewModel
         navigationController.pushViewController(perfilSettingsVC, animated: true)
     }
@@ -64,4 +65,10 @@ extension PerfilCoordinator: PerfilViewModelCoordinatorProtocol {
     }
     
     
+}
+
+extension PerfilCoordinator: PerfilDetailsViewModelProtocol {
+    func PerfilDetailsViewModelDidFinished() {
+        pop()
+    }
 }

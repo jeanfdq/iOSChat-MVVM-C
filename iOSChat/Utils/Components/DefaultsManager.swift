@@ -48,6 +48,28 @@ class DefaultsManager {
         save(object: data, key: .userLogged)
     }
     
+    func currentUserData() -> UserModel? {
+        if let userModelData: Data? = get(key: .userLogged) {
+            return userModelData?.toModel()
+        }
+        return nil
+    }
+    
+    func renewCurrentUserOffLine(email: String) {
+        let userCoreData = CoreDataManager.shared.fetchData(User.self, predicate: NSPredicate.buildPredicateWithUserEmail(email))
+        DefaultsManager.instance.delete(key: .userLogged)
+        
+        guard let fullName = userCoreData[0].userFullName,
+              let phoneNumber = userCoreData[0].userCellPhone,
+              let email = userCoreData[0].userEmail,
+              let photo = userCoreData[0].userPhoto
+        else {return}
+        
+        let newUser = UserModel(fullName: fullName, phoneNumber: phoneNumber, email: email, photo: photo)
+        
+        DefaultsManager.instance.saveCurrentUser(data: newUser.toData() ?? Data())
+    }
+    
     // MARK: Helpers
     
     fileprivate func standard() -> UserDefaults {

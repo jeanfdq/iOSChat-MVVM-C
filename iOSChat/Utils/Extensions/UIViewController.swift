@@ -78,4 +78,17 @@ extension UIViewController {
         viewObj.applyCenterIntoSuperView(size: size)
     }
     
+    func buildAlertInputData(_ title: String, _ message: String, completion: @escaping(UIAlertAction)->Void ) -> UITextField {
+        var textField2 = UITextField()
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Informe seu nome"
+            textField2 = textField
+        }
+        alert.addAction(.setAction(title: "cancel", foreColor: .red))
+        alert.addAction(.setAction(title: "ok", completion))
+        present(alert, animated: true )
+        return textField2
+    }
+    
 }

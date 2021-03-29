@@ -7,7 +7,8 @@
 
 import UIKit
 
- enum viewControllerType {
+
+enum viewControllerType {
     case onboarding
     case splashscreen
     case main
@@ -45,7 +46,7 @@ class MainCoordinator  {
         
     }
     
-     func getViewController(with controller: viewControllerType) -> UIViewController {
+    func getViewController(with controller: viewControllerType) -> UIViewController {
         
         switch controller {
         case .login:
@@ -129,7 +130,16 @@ extension MainCoordinator: PerfilSignUpViewModelDelegete {
 extension MainCoordinator: LaunchScreenViewModelCoordinatorDelegate {
     
     func launchScreenCoordinatorGoToMainTabBar() {
-        goToMain()
+        
+        let settingsModel = CoreDataManager.shared.fetchData(Settings.self)
+        let allowFceID = settingsModel.count == 0 ? false : settingsModel[0].allowFaceId
+        
+        if allowFceID {
+            Authorize.WithTouchOrFace { isSucess in
+                if isSucess { self.goToMain() }
+            }
+        } else { goToMain() }
+        
     }
     
 }

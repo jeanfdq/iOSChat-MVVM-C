@@ -13,11 +13,12 @@ class PerfilSettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
     }
     
     fileprivate func setupView() {
-        view.backgroundColor = .init(white: 0.5, alpha: 1)
+        viewModel?.handleBackground(view: view)
         
         setupNavigationBar(isHidden: false, isTranslucent: false, title: "Configurações", isLargeTitle: false, titleColor: .darkGray, backButtonIsHidden: false, backButtonTitle: "", backButtonColor: AppColors.primaryColor(), backgroungColor: .white, withShadow: true, animated: true)
         

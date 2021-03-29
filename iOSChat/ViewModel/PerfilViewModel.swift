@@ -15,7 +15,11 @@ protocol PerfilViewModelCoordinatorProtocol: class {
 
 struct PerfilViewModel {
     
-    private var userModel: UserModel?
+    private var user: UserModel
+    
+    init(user: UserModel) {
+        self.user = user
+    }
     
     weak var delegate: PerfilViewModelCoordinatorProtocol?
     
@@ -23,36 +27,29 @@ struct PerfilViewModel {
         view.backgroundColor = .white
     }
     
-    mutating func currentUserData() {
-        if let userModelData: Data? = DefaultsManager.instance.get(key: .userLogged) {
-            userModel = userModelData?.toModel()
-        }
-    }
-    
     var userFullName: String {
-        return userModel?.fullName ?? ""
+        return user.fullName
     }
     
     var userEmail: String {
-        return userModel?.email ?? ""
+        return user.email
     }
     
     var userPhoto: UIImage {
-        return userModel?.photo.toImage ?? UIImage(systemName: "person.circle")?.withTintColor(.init(white: 0.8, alpha: 0.6)).withRenderingMode(.alwaysOriginal) ?? UIImage()
+        return user.photo.toImage ?? UIImage(systemName: "person.circle")?.withTintColor(.init(white: 0.8, alpha: 0.6)).withRenderingMode(.alwaysOriginal) ?? UIImage()
     }
     
-    func udpateProfileImage(_ image: UIImage) -> Bool {
-        return CoreDataManager.shared.udpateFieldData(email: userEmail, field: "userPhoto", value: image.jpegData(compressionQuality: 0.5)!)
+    func udpateProfileImage(_ image: UIImage) {
+        CoreDataManager.shared.udpateFieldData(email: userEmail, field: "userPhoto", value: image.jpegData(compressionQuality: 0.5)!)
+        DefaultsManager.instance.renewCurrentUserOffLine(email: userEmail)
     }
     
     func goToDetails(){
-        guard let userModel = userModel else {return}
-        delegate?.goToDetails(userModel: userModel)
+        delegate?.goToDetails(userModel: user)
     }
     
     func goToSettings(){
-        guard let userModel = userModel else {return}
-        delegate?.goToSettings(userModel: userModel)
+        delegate?.goToSettings(userModel: user)
     }
     
     func logout() {

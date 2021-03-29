@@ -9,16 +9,18 @@ import UIKit
 
 extension UIAlertAction {
     
-    static func setAction(_ title:String?, _ handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
-        return UIAlertAction(title: title, style: .default, handler: handler)
+    static func setAction( title:String?, foreColor: UIColor = AppColors.primaryColor(), _ handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
+        let action = UIAlertAction(title: title, style: .default, handler: handler)
+        action.titleTextColor = foreColor
+        return action
     }
     
-    static func setCancel(_ title:String?, _ handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
-        return UIAlertAction(title: title, style: .cancel, handler: handler)
+    var titleTextColor: UIColor? {
+        get {
+            return self.value(forKey: "titleTextColor") as? UIColor
+        } set {
+            self.setValue(newValue, forKey: "titleTextColor")
+        }
     }
     
-    func setTitleColor(color:UIColor){
-        self.setValue(color, forKey: "titleTextColor")
-    }
 }
-
