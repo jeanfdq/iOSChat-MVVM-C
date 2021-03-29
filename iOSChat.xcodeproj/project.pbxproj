@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8C011FED260AD99B005AA9EB /* BindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C011FEC260AD99B005AA9EB /* BindingTextField.swift */; };
 		8C011FF4260ADD2D005AA9EB /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C011FF3260ADD2D005AA9EB /* UITextField.swift */; };
+		8C12C9AE26125A7E0003D726 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12C9AD26125A7E0003D726 /* ContactsViewModel.swift */; };
+		8C12C9B126126DCF0003D726 /* ContactsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12C9B026126DCF0003D726 /* ContactsViewCell.swift */; };
 		8C36A276260FAEA900816493 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C36A275260FAEA900816493 /* PickerView.swift */; };
 		8C36A279260FB0C700816493 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C36A278260FB0C700816493 /* UIAlertAction.swift */; };
 		8C36A27C260FBEB500816493 /* PerfilDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C36A27B260FBEB500816493 /* PerfilDetailsViewController.swift */; };
@@ -64,6 +66,8 @@
 /* Begin PBXFileReference section */
 		8C011FEC260AD99B005AA9EB /* BindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
 		8C011FF3260ADD2D005AA9EB /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		8C12C9AD26125A7E0003D726 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
+		8C12C9B026126DCF0003D726 /* ContactsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewCell.swift; sourceTree = "<group>"; };
 		8C36A275260FAEA900816493 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		8C36A278260FB0C700816493 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		8C36A27B260FBEB500816493 /* PerfilDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilDetailsViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				8C9BC5BE260970F70016287C /* OnboardingViewCell.swift */,
 				8C36A27B260FBEB500816493 /* PerfilDetailsViewController.swift */,
 				8C36A27E260FC69E00816493 /* PerfilSettingsViewController.swift */,
+				8C12C9B026126DCF0003D726 /* ContactsViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				8C6FA4B5260BE92B006B089B /* PerfilSignUpViewModel.swift */,
 				8C36A282260FDA1700816493 /* PerfilDetailsViewModel.swift */,
 				8C36A285260FDBFE00816493 /* PerfilSettingsViewModel.swift */,
+				8C12C9AD26125A7E0003D726 /* ContactsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 				8C36A27F260FC69E00816493 /* PerfilSettingsViewController.swift in Sources */,
 				8C5F274826117E79008AA0FA /* Authorize.swift in Sources */,
 				8C69779926069CCB00DE5AB3 /* MainCoordinator.swift in Sources */,
+				8C12C9B126126DCF0003D726 /* ContactsViewCell.swift in Sources */,
 				8C9BC5BF260970F70016287C /* OnboardingViewCell.swift in Sources */,
 				8C69775D26066E2000DE5AB3 /* SceneDelegate.swift in Sources */,
 				8C9BC5C2260991130016287C /* OnboardingCoordinator.swift in Sources */,
@@ -408,6 +415,7 @@
 				8C36A283260FDA1700816493 /* PerfilDetailsViewModel.swift in Sources */,
 				8C44512526078AFF008C8497 /* PerfilSignUpViewController.swift in Sources */,
 				8C94D80E260C3BEC008EA8B5 /* iOSChat.xcdatamodeld in Sources */,
+				8C12C9AE26125A7E0003D726 /* ContactsViewModel.swift in Sources */,
 				8C6977B42606EA4800DE5AB3 /* HomeViewController.swift in Sources */,
 				8C36A27C260FBEB500816493 /* PerfilDetailsViewController.swift in Sources */,
 				8C69779126069AA500DE5AB3 /* CoordinatorStack.swift in Sources */,

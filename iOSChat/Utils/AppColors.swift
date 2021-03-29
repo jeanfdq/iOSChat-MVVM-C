@@ -24,4 +24,8 @@ class AppColors {
     static func tabBarUnselected() -> UIColor {
         return AppColors.initColor(named: "tabBarUnselected")
     }
+    
+    static func customGrayBrackground() -> UIColor {
+        return AppColors.initColor(named: "customGray")
+    }
 }

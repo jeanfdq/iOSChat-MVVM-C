@@ -13,8 +13,11 @@ class HomeCoordinator: NSObject, Coordinator {
     
     var navigationController: UINavigationController
     
-    init(_ navigationController: UINavigationController) {
+    var user: UserModel
+    
+    init(_ navigationController: UINavigationController, user: UserModel) {
         self.navigationController = navigationController
+        self.user = user
     }
     
     func start() {

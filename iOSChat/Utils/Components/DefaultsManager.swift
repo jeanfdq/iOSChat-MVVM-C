@@ -48,11 +48,11 @@ class DefaultsManager {
         save(object: data, key: .userLogged)
     }
     
-    func currentUserData() -> UserModel? {
+    func currentUserData() -> UserModel {
         if let userModelData: Data? = get(key: .userLogged) {
-            return userModelData?.toModel()
+            return userModelData?.toModel() ?? UserModel()
         }
-        return nil
+        return UserModel()
     }
     
     func renewCurrentUserOffLine(email: String) {

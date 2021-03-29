@@ -24,15 +24,14 @@ private enum MainTabControllers {
 
 class MainTabBarViewController: UITabBarController {
     
-    let home        = HomeCoordinator(UINavigationController())
-    let constacts   = ConstactsCoordinator(UINavigationController())
-    let perfil      = PerfilCoordinator(UINavigationController())
+    let home        = HomeCoordinator(UINavigationController(), user: DefaultsManager.instance.currentUserData())
+    let constacts   = ConstactsCoordinator(UINavigationController(), user: DefaultsManager.instance.currentUserData())
+    let perfil      = PerfilCoordinator(UINavigationController(), user: DefaultsManager.instance.currentUserData())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
         setupTabs()
-        
     }
     
     fileprivate func setupTabBar() {

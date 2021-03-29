@@ -13,13 +13,14 @@ class PerfilCoordinator: NSObject, Coordinator {
     
     var navigationController: UINavigationController
     
-    init(_ navigationController: UINavigationController) {
+    var user: UserModel
+    
+    init(_ navigationController: UINavigationController, user: UserModel) {
         self.navigationController = navigationController
+        self.user = user
     }
     
     func start() {
-        
-        guard let user = DefaultsManager.instance.currentUserData() else {return}
         
         let perfilVC = PerfilViewController()
         var viewModel = PerfilViewModel(user: user)

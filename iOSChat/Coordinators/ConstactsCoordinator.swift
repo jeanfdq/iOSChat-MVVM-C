@@ -13,13 +13,19 @@ class ConstactsCoordinator: NSObject, Coordinator {
     
     var navigationController: UINavigationController
     
-    init(_ navigationController: UINavigationController) {
+    var user: UserModel
+    
+    init(_ navigationController: UINavigationController, user: UserModel) {
         self.navigationController = navigationController
+        self.user = user
     }
     
     func start() {
         
-        let vc = ContactsViewController()
+        let vc = ContactsViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let vm = ContactsViewModel(user)
+        vc.viewModel = vm
+        
         navigationController.tabBarItem.image = UIImage(systemName: Constants.TabBar.TabBarImage.contacts.rawValue)
         navigationController.tabBarItem.selectedImage = UIImage(systemName: Constants.TabBar.TabBarImage.contacts.rawValue)
         navigationController.tabBarItem.title = Constants.TabBar.TabBarTitle.contacts.rawValue
