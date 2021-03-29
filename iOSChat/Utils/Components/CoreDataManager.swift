@@ -76,6 +76,23 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
+    enum settingsFields: String {
+        case pushNotification = "allowNotification"
+        case faceID = "allowFaceId"
+    }
+    func udpateFieldSettingsBool( field: settingsFields, value: Bool) {
+        let contextUpdate = context()
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Settings")
+        fetchRequest.returnsObjectsAsFaults = false
+        if let searchResult = try? contextUpdate.fetch(fetchRequest) as? [NSManagedObject] {
+            if searchResult.count > 0 {
+                searchResult[0].setValue(value, forKey: field.rawValue)
+                save(context: contextUpdate)
+            }
+        }
+    }
+    
     func delete<T: NSManagedObject>(_ model: T) -> Bool {
         
         let contextDelete = context()

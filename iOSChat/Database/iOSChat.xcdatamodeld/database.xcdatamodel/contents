@@ -12,7 +12,7 @@
         <attribute name="userPhoto" optional="YES" attributeType="Binary"/>
     </entity>
     <elements>
-        <element name="User" positionX="-740.7735595703125" positionY="-360.6358642578125" width="128" height="104"/>
         <element name="Settings" positionX="-738" positionY="-324" width="128" height="59"/>
+        <element name="User" positionX="-740.7735595703125" positionY="-360.6358642578125" width="128" height="104"/>
     </elements>
 </model>
