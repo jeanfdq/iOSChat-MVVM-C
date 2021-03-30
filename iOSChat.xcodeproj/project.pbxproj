@@ -11,6 +11,7 @@
 		8C011FF4260ADD2D005AA9EB /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C011FF3260ADD2D005AA9EB /* UITextField.swift */; };
 		8C12C9AE26125A7E0003D726 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12C9AD26125A7E0003D726 /* ContactsViewModel.swift */; };
 		8C12C9B126126DCF0003D726 /* ContactsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12C9B026126DCF0003D726 /* ContactsViewCell.swift */; };
+		8C12C9B426128A1B0003D726 /* ContactsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12C9B326128A1B0003D726 /* ContactsCollectionReusableView.swift */; };
 		8C36A276260FAEA900816493 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C36A275260FAEA900816493 /* PickerView.swift */; };
 		8C36A279260FB0C700816493 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C36A278260FB0C700816493 /* UIAlertAction.swift */; };
 		8C36A27C260FBEB500816493 /* PerfilDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C36A27B260FBEB500816493 /* PerfilDetailsViewController.swift */; };
@@ -68,6 +69,7 @@
 		8C011FF3260ADD2D005AA9EB /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		8C12C9AD26125A7E0003D726 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		8C12C9B026126DCF0003D726 /* ContactsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewCell.swift; sourceTree = "<group>"; };
+		8C12C9B326128A1B0003D726 /* ContactsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCollectionReusableView.swift; sourceTree = "<group>"; };
 		8C36A275260FAEA900816493 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		8C36A278260FB0C700816493 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		8C36A27B260FBEB500816493 /* PerfilDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilDetailsViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				8C36A27B260FBEB500816493 /* PerfilDetailsViewController.swift */,
 				8C36A27E260FC69E00816493 /* PerfilSettingsViewController.swift */,
 				8C12C9B026126DCF0003D726 /* ContactsViewCell.swift */,
+				8C12C9B326128A1B0003D726 /* ContactsCollectionReusableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				8C6FA4B6260BE92B006B089B /* PerfilSignUpViewModel.swift in Sources */,
 				8C6977AB2606D7DF00DE5AB3 /* LaunchScreenViewModel.swift in Sources */,
 				8C69775B26066E2000DE5AB3 /* AppDelegate.swift in Sources */,
+				8C12C9B426128A1B0003D726 /* ContactsCollectionReusableView.swift in Sources */,
 				8C011FF4260ADD2D005AA9EB /* UITextField.swift in Sources */,
 				8C36A27F260FC69E00816493 /* PerfilSettingsViewController.swift in Sources */,
 				8C5F274826117E79008AA0FA /* Authorize.swift in Sources */,
