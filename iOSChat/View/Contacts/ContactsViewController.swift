@@ -35,6 +35,13 @@ class ContactsViewController: UICollectionViewController, UICollectionViewDelega
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNaviBar()
+        setupCollectionView()
+        setupSearchController()
+    }
+    
     fileprivate func setupNaviBar() {
         setupNavigationBar(isHidden: false, isTranslucent: false, title: Constants.TabBar.TabBarTitle.contacts.rawValue, titleColor: .black, backgroungColor: .white, withShadow: true)
     }
@@ -46,7 +53,6 @@ class ContactsViewController: UICollectionViewController, UICollectionViewDelega
     }
     
     fileprivate func setupSearchController() {
-        searchController.searchResultsUpdater = self
         searchController.delegate = self
         searchController.searchBar.delegate = self
         
@@ -55,16 +61,16 @@ class ContactsViewController: UICollectionViewController, UICollectionViewDelega
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.sizeToFit()
         searchController.searchBar.becomeFirstResponder()
-
+        
         searchController.searchBar.setImage(UIImage(systemName: "text.magnifyingglass")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal), for: .search, state: .normal)
         searchController.searchBar.barStyle = .default
         searchController.searchBar.backgroundImage = UIImage()
         searchController.searchBar.barTintColor = .white
-
+        
         if #available(iOS 11.0, *) {
-
+            
             if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-
+                
                 textfield.backgroundColor = AppColors.customGrayBrackground()
                 textfield.textColor = .darkGray
             }
@@ -72,24 +78,35 @@ class ContactsViewController: UICollectionViewController, UICollectionViewDelega
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listUser.count //searching ? listUserSearched.count : listUser.count
+        return searching ? listUserSearched.count : listUser.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
+        
         if kind == UICollectionView.elementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseIdentifierHeader, for: indexPath) as! ContactsCollectionReusableView
             header.addSubview(searchController.searchBar)
             return header
         }
         return UICollectionReusableView()
-
+        
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let userDestination = searching ? listUserSearched[indexPath.item] : listUser[indexPath.item]
+        viewModel?.delegate?.openChat(userDestination: userDestination)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierCell, for: indexPath) as! ContactsViewCell
-        cell.userPhoto.image    = listUser[indexPath.item].photo.toImage
-        cell.userName.text      = listUser[indexPath.item].fullName
+        if searching {
+            cell.userPhoto.image    = listUserSearched[indexPath.item].photo.toImage
+            cell.userName.text      = listUserSearched[indexPath.item].fullName
+        } else {
+            cell.userPhoto.image    = listUser[indexPath.item].photo.toImage
+            cell.userName.text      = listUser[indexPath.item].fullName
+        }
+        
         return cell
     }
     
@@ -107,34 +124,30 @@ class ContactsViewController: UICollectionViewController, UICollectionViewDelega
     
 }
 
-extension ContactsViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchString = searchController.searchBar.text
-        searching = searchString?.count ?? 0 >= 2 ? true : false
-        
-    }
+extension ContactsViewController: UISearchControllerDelegate, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text {
-
+            
             if searchText.count > 2 {
-
+                
                 listUserSearched = listUser.filter({ (item ) -> Bool in
                     let countryText: NSString = item.fullName as NSString
-
-                            return (countryText.range(of: searchText, options: NSString.CompareOptions.caseInsensitive).location) != NSNotFound
-                        })
-
-                        collectionView.reloadData()
+                    
+                    return (countryText.range(of: searchText, options: NSString.CompareOptions.caseInsensitive).location) != NSNotFound
+                })
+                DispatchQueue.main.async {
+                    self.searching = true
+                    self.collectionView?.reloadData()
+                }
+                
             }
-
+            
         }
     }
-
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
-        listUser = viewModel!.getListOfUsers()
-        //searchController.searchBar.resignFirstResponder()
         collectionView.reloadData()
     }
     

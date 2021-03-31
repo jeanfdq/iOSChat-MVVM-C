@@ -7,9 +7,15 @@
 
 import Foundation
 
+protocol ContactsViewModelProtocol: class {
+    func openChat(userDestination: UserModel)
+}
+
 class ContactsViewModel {
     
     var user: UserModel
+    
+    weak var delegate: ContactsViewModelProtocol?
     
     init(_ user: UserModel) {
         self.user = user

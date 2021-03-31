@@ -24,6 +24,7 @@ class ConstactsCoordinator: NSObject, Coordinator {
         
         let vc = ContactsViewController(collectionViewLayout: UICollectionViewFlowLayout())
         let vm = ContactsViewModel(user)
+        vm.delegate = self
         vc.viewModel = vm
         
         navigationController.tabBarItem.image = UIImage(systemName: Constants.TabBar.TabBarImage.contacts.rawValue)
@@ -31,8 +32,14 @@ class ConstactsCoordinator: NSObject, Coordinator {
         navigationController.tabBarItem.title = Constants.TabBar.TabBarTitle.contacts.rawValue
         navigationController.pushViewController(vc, animated: false)
     }
-    
-    
-    
-    
+     
+}
+
+extension ConstactsCoordinator: ContactsViewModelProtocol {
+    func openChat(userDestination: UserModel) {
+       
+        let chatVC = ChatViewController(userDestination: userDestination)
+        navigationController.pushViewController(chatVC, animated: true)
+        
+    }
 }
